@@ -1,50 +1,63 @@
-import React from 'react';
-import {useHistory, Link} from "react-router-dom";
-import {handleLogIn} from '../API/index';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import API from '../API/api';
+import TokenUtilities from '../API/token';
 
-const Home = ({username, password, setUsername, setPassword, setUserToken, loggedIn, setLoggedIn}) => {
-	// const history = useHistory()
+const Home = ({setToken}) => {
+    let history = useHistory();
+    const [user, setUser] = useState({username: '', password: ''});
 
-	// const logInRequest = async (event) => {
-	// 	event.preventDefault();
-	// 	try {
-	// 		const data = await handleLogIn(username, password);
-	// 		if (data.error) {
-	// 			history.push("/message");
-	// 		} else {
-	// 			const token = data.token;
-	// 			localStorage.setItem(`Token`, token);
-	// 			setUserToken(token);
-	// 			setLoggedIn(true);
-	// 			setUsername(username);
+    async function storeToken() {
+        try {
+           
+            const data = await API.makeRequest('/users/login', 'POST', user);
+            if(data.token){
+            TokenUtilities.setToken(data.token);
+            console.log(data);
+            setToken(data.token);
+            history.push('/activities');
+            }else{
+                alert(data.error);
+            }
+        } catch (error) {
+            alert(error);
+        } 
+    }
 
-	// 			localStorage.setItem(`Username`, username);
-	// 			history.push("/");
-	// 		}
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
+    function handleSubmit(event) {
+        event.preventDefault();
+        localStorage.setItem('username', user.username);
+        storeToken();
+    }
 
-	return (
-        
-		<>
-		<div>
-		<label>username</label>
-			<input></input>
-		<label>password</label>
-			<input></input>
-		</div>	
+    function handleInput(event) {
+        const userKey = event.target.attributes['name'].value;
+        const newState = {...user};
+        newState[userKey] = event.target.value;
+        setUser(newState);
+    }
 
-		<div className="buttonContainer">
-						<button className="loginButton">Log In</button>
-					</div>
-					<div className="signUpSection">
-						<p> Don't have an account? </p>
-						<Link to="/register" className="signUpLink">Sign Up</Link>
-					</div>
-		</>
-	)
+return (
+    <div className= 'conatiner'>
+        <h2>Login Here</h2>
+
+        <form  className ='form' onSubmit={handleSubmit} >
+                <input type="text" 
+                        required
+                        name="username"
+                        value={user.username}
+                        onChange={handleInput}
+                        placeholder="username" />
+                <input type="password"
+                        required
+                        name="password"
+                        value={user.password}
+                        onChange={handleInput}
+                        placeholder="password"></input>
+                <button>Log In</button>
+        </form>
+    </div>
+)
 }
 
 export default Home;
