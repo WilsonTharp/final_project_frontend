@@ -21,6 +21,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
                 <Link to="/profile" className="navItem">Profile</Link>
 				<Link to="/cart" className="navItem">Cart</Link>
 				
+				
 				{loggedIn ?
 					<>
 						<Link className="navItem" onClick={logOut}>Log Out</Link>

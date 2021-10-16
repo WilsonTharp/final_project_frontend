@@ -60,6 +60,27 @@ return (
                    value={registerUser.password}
                    onChange={handleInput}
                    placeholder="password"></input>
+
+            <input type="text"
+                   required
+                   name="password"
+                   value={registerUser.firstName}
+                   onChange={handleInput}
+                   placeholder="firstName"></input>
+
+             <input type="text"
+                   required
+                   name="lastName"
+                   value={registerUser.lastName}
+                   onChange={handleInput}
+                   placeholder="lastName"></input>
+
+            <input type="text"
+                   required
+                   name="locataion"
+                   value={registerUser.location}
+                   onChange={handleInput}
+                   placeholder="location"></input>
             <button>Register</button>
         </form>
     </div>
