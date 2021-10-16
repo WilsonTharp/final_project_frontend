@@ -1,4 +1,4 @@
-const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
+const BASE_URL = 'https://stormy-cliffs-19434.herokuapp.com/api';
 
 import TokenUtilities from './token';
 
