@@ -1,4 +1,5 @@
-const BASE_URL = "WE DONT KNOW YET";
+const BASE_URL = 'https://stormy-cliffs-19434.herokuapp.com/api';
+
 
 const handleItems = async () => {
 	try {

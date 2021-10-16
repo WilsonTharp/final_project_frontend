@@ -55,6 +55,10 @@ return (
                         onChange={handleInput}
                         placeholder="password"></input>
                 <button>Log In</button>
+                <div className="signUpSection">
+						<p> Don't have an account? </p>
+						<Link to="/register" className="signUpLink">Sign Up</Link>
+					</div>
         </form>
     </div>
 )
