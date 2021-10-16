@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css'
 import ReactDOM from 'react-dom';
-
+import TokenUtilities from './API/token';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -29,18 +29,22 @@ const App = () => {
 //         setMessage(error.message);
 //       });
 //   });
+const [token, setToken] = useState(TokenUtilities.getToken());
+const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
+useEffect(function() {
+	setIsLoggedIn(!!token);
+}, [token]);
   return (
     <>
 			<div className="app">
 				<Header
-					// loggedIn={loggedIn}
-					// setLoggedIn={setLoggedIn}
+					isLoggedIn = {isLoggedIn} setToken={setToken}
 				/>
 				<Switch>
 					<Route exact path="/">
 						<Home
-							// loggedIn={loggedIn}
+							setToken ={setToken}
 							// setLoggedIn={setLoggedIn}
 							// username={username}
 							// password={password}
