@@ -18,17 +18,7 @@ import {
 } from './components';
 
 const App = () => {
-//   const [message, setMessage] = useState('');
 
-//   useEffect(() => {
-//     getSomething()
-//       .then(response => {
-//         setMessage(response.message);
-//       })
-//       .catch(error => {
-//         setMessage(error.message);
-//       });
-//   });
 const [token, setToken] = useState(TokenUtilities.getToken());
 const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
@@ -37,6 +27,11 @@ useEffect(function() {
 }, [token]);
   return (
     <>
+		{isLoggedIn ?
+				<div className="messageUnderHeader">
+					<h3>Logged in as {localStorage.getItem(`Username`)}</h3>
+				</div>
+				:
 			<div className="app">
 				<Header
 					isLoggedIn = {isLoggedIn} setToken={setToken}
@@ -75,7 +70,8 @@ useEffect(function() {
 					
 				</Switch>
 			</div>
-		</>
+		}
+	</>
 	)
 }
 

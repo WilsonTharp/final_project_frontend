@@ -14,20 +14,23 @@ const Header = ({loggedIn, setLoggedIn}) => {
 	}
 
 	return (
-		<header>
+		<header className="header">
 			<h1>Cereal Bar</h1>
-			<div id="nav-bar">
-				<Link to="/items" className="navItem">Cereal</Link>
-                <Link to="/profile" className="navItem">Profile</Link>
-				<Link to="/cart" className="navItem">Cart</Link>
+			<input className="menu-button" type="checkbox" id="menu-button" />
+			<label className="menu-icon" for="menu-button"><span className="nav-icon"></span></label>
+			<ul className="menu">
+				<li><Link to="/items" className="navItem">Cereal</Link></li>
+				<li> <Link to="/profile" className="navItem">Profile</Link></li>
+				<li><Link to="/cart" className="navItem">Cart</Link></li>
+				
 				
 				{loggedIn ?
 					<>
-						<Link className="navItem" onClick={logOut}>Log Out</Link>
+						<li><Link className="navItem" onClick={logOut}>Log Out</Link></li>
 					</>
-					: <Link to="/" className="navItem">Log In</Link>
+					: <li><Link to="/" className="navItem">Log In</Link></li>
 				}
-			</div>
+			</ul>
 		</header>
 	)
 }

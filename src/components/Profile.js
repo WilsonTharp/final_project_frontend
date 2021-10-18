@@ -5,9 +5,13 @@ import {useHistory, Link} from 'react-router-dom'
 const Profile = () => {
 	
 	return (
+		<>
+		<div className="pageContainer">
 		<div>
 			<h3>Profile</h3>
 		</div>
+		</div>
+		</>
 	)
 }
 

@@ -38,7 +38,7 @@ const Home = ({setToken}) => {
     }
 
 return (
-    <div className= 'conatiner'>
+    <div className="pageContainer">
         <h2>Login Here</h2>
 
         <form  className ='form' onSubmit={handleSubmit} >
