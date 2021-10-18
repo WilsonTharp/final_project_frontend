@@ -72,9 +72,7 @@ useEffect(function() {
 						<Profile />
 					</Route>
 
-					{/* <Route>
-						<Message />
-					</Route> */}
+					
 				</Switch>
 			</div>
 		</>
