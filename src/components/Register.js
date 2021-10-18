@@ -42,7 +42,7 @@ function handleInput(event) {
 }
 
 return (
-    <div className='conatiner'>
+    <div className='pageContainer'>
        <h2>Register here</h2>
         <form className='form'onSubmit={handleSubmit}>
         
