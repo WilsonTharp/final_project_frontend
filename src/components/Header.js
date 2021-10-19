@@ -1,18 +1,19 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-
-const Header = ({loggedIn, setLoggedIn}) => {
+import TokenUtilities from '../API/token';
+const Header = ({isLoggedIn, setToken}) => {
 	//what is wrong with this relative path for image below? Cannot get it to work.
 
 	const history = useHistory();
 
 	function logOut(event) {
 		event.preventDefault();
-		localStorage.removeItem('Token')
-		setLoggedIn(null);
+		TokenUtilities.removeToken(); 
+		setToken(null);
 		history.push('/')
 	}
-
+	
+    
 	return (
 		<header className="header">
 			<h1>Cereal Bar</h1>
@@ -24,7 +25,7 @@ const Header = ({loggedIn, setLoggedIn}) => {
 				<li><Link to="/cart" className="navItem">Cart</Link></li>
 				
 				
-				{loggedIn ?
+				{isLoggedIn ?
 					<>
 						<li><Link className="navItem" onClick={logOut}>Log Out</Link></li>
 					</>

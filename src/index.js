@@ -27,7 +27,6 @@ useEffect(function() {
 }, [token]);
   return (
     <>
-	
 		{/* {isLoggedIn ?
 				<div className="messageUnderHeader">
 					<h3>Logged in as {localStorage.getItem(`Username`)}</h3>
@@ -68,9 +67,7 @@ useEffect(function() {
 						<Profile />
 					</Route>
 
-					{/* <Route>
-						<Message />
-					</Route> */}
+					
 				</Switch>
 			</div>
 		{/* } */}

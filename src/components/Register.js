@@ -7,19 +7,19 @@ const Register = () => {
 
     let history = useHistory();
 
-    const [registerUser, setRegisterUser] = useState({username: '', password: ''});
+    const [registerUser, setRegisterUser] = useState({username: '', password: '', firstName:'', lastName:'', location: ''});
 
     async function registerGetToken() {
         try {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
             console.log(data);
-            if(data.token){
-                alert(data.message);
-                history.push('/users/login');
-            }else{
-                alert(data.error);
-            }
+            // if(data.token){
+            //     alert(data.message);
+            //     history.push('/users/login');
+            // }else{
+            //     alert(data.error);
+            // }
         } catch (error) {
             alert(error);
         } 
