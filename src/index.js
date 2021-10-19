@@ -21,7 +21,7 @@ const App = () => {
 
 const [token, setToken] = useState(TokenUtilities.getToken());
 const [isLoggedIn, setIsLoggedIn] = useState(!!token);
-
+console.log(localStorage)
 useEffect(function() {
 	setIsLoggedIn(!!token);
 }, [token]);

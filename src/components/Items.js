@@ -30,12 +30,14 @@ const Items = () => {
 		<h1 className="pageTitle">Items:</h1>
 		<div>
 			{items.map((item, id) => {
+				console.log(item)
 				return (
 					<>
 					<div className="singleItem">
 						<h2>{item.name}</h2>
 						<h3>${item.price}</h3>
 						<p>{item.description}</p>
+						<img src={`../../images/${item.picture}`}></img>
 						<button>
 							
 						Add to Cart</button>
