@@ -27,11 +27,11 @@ useEffect(function() {
 }, [token]);
   return (
     <>
-		{isLoggedIn ?
+		{/* {isLoggedIn ?
 				<div className="messageUnderHeader">
 					<h3>Logged in as {localStorage.getItem(`Username`)}</h3>
 				</div>
-				:
+				: */}
 			<div className="app">
 				<Header
 					isLoggedIn = {isLoggedIn} setToken={setToken}
@@ -70,7 +70,7 @@ useEffect(function() {
 					
 				</Switch>
 			</div>
-		}
+		{/* } */}
 	</>
 	)
 }

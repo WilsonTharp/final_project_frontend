@@ -17,11 +17,11 @@ const Cart = () => {
         } 
     }, []);
 
-    const cartElements = myCart. map((item, i)=>
-        <div  className='cart-container'key= {`cart-id-${i}`}>
-            <p>{item.itemsId}</p>
+    // const cartElements = myCart. map((item, i)=>
+    //     <div  className='cart-container'key= {`cart-id-${i}`}>
+    //         <p>{item.itemsId}</p>
            
-        </div>);
+    //     </div>);
 
     return (
         <div id='my-cart'>
@@ -33,7 +33,7 @@ const Cart = () => {
                 <h1>My Cart</h1>
             
             <div className='my-cart-list'>
-                {cartElements}
+                {/* {cartElements} */}
             </div>
         </div>
     )
