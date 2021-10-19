@@ -7,19 +7,19 @@ const Register = () => {
 
     let history = useHistory();
 
-    const [registerUser, setRegisterUser] = useState({username: '', password: ''});
+    const [registerUser, setRegisterUser] = useState({username: '', password: '', firstName:'', lastName:'', location: ''});
 
     async function registerGetToken() {
         try {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
             console.log(data);
-            if(data.token){
-                alert(data.message);
-                history.push('/users/login');
-            }else{
-                alert(data.error);
-            }
+            // if(data.token){
+            //     alert(data.message);
+            //     history.push('/users/login');
+            // }else{
+            //     alert(data.error);
+            // }
         } catch (error) {
             alert(error);
         } 
@@ -63,7 +63,7 @@ return (
 
             <input type="text"
                    required
-                   name="password"
+                   name="firstName"
                    value={registerUser.firstName}
                    onChange={handleInput}
                    placeholder="firstName"></input>
@@ -77,7 +77,7 @@ return (
 
             <input type="text"
                    required
-                   name="locataion"
+                   name="location"
                    value={registerUser.location}
                    onChange={handleInput}
                    placeholder="location"></input>
