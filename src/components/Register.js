@@ -63,7 +63,7 @@ return (
 
             <input type="text"
                    required
-                   name="password"
+                   name="firstName"
                    value={registerUser.firstName}
                    onChange={handleInput}
                    placeholder="firstName"></input>
@@ -77,7 +77,7 @@ return (
 
             <input type="text"
                    required
-                   name="locataion"
+                   name="location"
                    value={registerUser.location}
                    onChange={handleInput}
                    placeholder="location"></input>
