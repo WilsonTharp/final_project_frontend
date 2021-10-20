@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import API from '../API/api';
 import TokenUtilities from '../API/token';
 
-const Home = ({setToken}) => {
+const Home = ({isLoggedIn, setToken}) => {
     let history = useHistory();
     const [user, setUser] = useState({username: '', password: ''});
 
@@ -38,8 +38,14 @@ const Home = ({setToken}) => {
     }
 
 return (
+    <>
+    {isLoggedIn ?
+        <div className="pageCountainer">
+            <h3>Logged in as {localStorage.getItem(`username`)}</h3>
+        </div>
+        :
     <div className="pageContainer">
-        <h2>Login Here</h2>
+        <h2>Login</h2>
 
         <form  className ='form' onSubmit={handleSubmit} >
                 <input type="text" 
@@ -61,6 +67,8 @@ return (
 					</div>
         </form>
     </div>
+}
+    </>
 )
 }
 

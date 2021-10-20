@@ -2,13 +2,43 @@ import {React, useState, useEffect} from 'react';
 import {handleItems} from '../API/index';
 import {useHistory, Link} from 'react-router-dom'
 
+//ASK SHANNON, how to have multiple counters on the same page? They all update together
+//somehow use the item id to change count? Very confused. 
+
+const Clicker = ({
+	addCount,
+	subtractCount
+}) => {
+	return (
+		<>
+		<button onClick={subtractCount}>-</button>
+		<button onClick={addCount}>+</button>
+		</>
+	)
+}
+
+const Counter = ({
+	count
+}) => {
+	return (
+		<p>Quantity {count}</p>
+	)
+}
+
+
+
 const Items = () => {
+	const [count, setCount] = useState(0);
 	const [items, setItems] = useState([]);
-	
-	// async function handleAddToCart(event) {
-	// 	event.preventDefault();
-	// 	await creatCart(items.id);
-	// }
+
+	const addCount = () => {
+		setCount(count +1);
+	}
+
+	const subtractCount = () => {
+		{count === 0 ? setCount(0) : setCount(count -1) }
+	}
+
 
 	useEffect(() => {
 		try {
@@ -38,6 +68,14 @@ const Items = () => {
 						<h3>${item.price}</h3>
 						<p>{item.description}</p>
 						<img src={`../../images/${item.picture}`}></img>
+						<div className="quantitySelector">
+							<Clicker addCount = {addCount}
+									 subtractCount = {subtractCount}	
+							/>
+							<Counter count={count}
+							/>
+						</div>
+						
 						<button>
 							
 						Add to Cart</button>
