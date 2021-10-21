@@ -5,6 +5,7 @@ import {useHistory, Link} from 'react-router-dom'
 //ASK SHANNON, how to have multiple counters on the same page? They all update together
 //somehow use the item id to change count? Very confused. 
 //clickerInUse is null. not sure why.
+//look at art collector the first one.
 const Clicker = ({
 	addCount,
 	subtractCount,
@@ -17,12 +18,8 @@ const Clicker = ({
 //not sure how to format the onClicks, event listener function?
 	return (
 		<>
-		<button onClick={clickerInUse.addEventListener("click", function(){
-			subtractCount
-})}>-</button>
-		<button onClick={clickerInUse.addEventListener("click", function(){
-			addCount
-})}>+</button>
+		<button id={id} onClick={subtractCount}>-</button>
+		<button id={id} onClick={addCount}>+</button>
 		</>
 	)
 }
@@ -39,6 +36,8 @@ const Counter = ({
 
 const Items = () => {
 	const [count, setCount] = useState(0);
+	const [itemId, setItemId] = useState();
+	const [userId, setUserId] = useState();
 	const [items, setItems] = useState([]);
 
 	const addCount = () => {
