@@ -4,16 +4,25 @@ import {useHistory, Link} from 'react-router-dom'
 
 //ASK SHANNON, how to have multiple counters on the same page? They all update together
 //somehow use the item id to change count? Very confused. 
-
+//clickerInUse is null. not sure why.
 const Clicker = ({
 	addCount,
 	subtractCount,
 	id
 }) => {
+	const clickerInUse=document.getElementById(id)
+	clickerInUse.addEventListener("click", function(){
+		console.log('THE CLICKER BEING CLICKED IS,', clickerInUse)
+	})
+//not sure how to format the onClicks, event listener function?
 	return (
 		<>
-		<button onClick={subtractCount}>-</button>
-		<button onClick={addCount}>+</button>
+		<button onClick={clickerInUse.addEventListener("click", function(){
+			subtractCount
+})}>-</button>
+		<button onClick={clickerInUse.addEventListener("click", function(){
+			addCount
+})}>+</button>
 		</>
 	)
 }
@@ -33,10 +42,12 @@ const Items = () => {
 	const [items, setItems] = useState([]);
 
 	const addCount = () => {
+		
 		setCount(count +1);
 	}
 
 	const subtractCount = () => {
+		
 		{count === 0 ? setCount(0) : setCount(count -1) }
 	}
 
@@ -70,7 +81,7 @@ const Items = () => {
 						<p>{item.description}</p>
 						<img src={`../../images/${item.picture}`}></img>
 						<div className="quantitySelector">
-							<Clicker id = {item.id}
+							<Clicker id = {id}
 									addCount = {addCount}
 									 subtractCount = {subtractCount}	
 							/>
@@ -78,7 +89,7 @@ const Items = () => {
 							/>
 						</div>
 						
-						<button onClick={handleCreateCart(user.id, item.id, count )}>
+						<button onClick={handleCreateCart(localStorage.getItem(`username`), item.id, count )}>
 							
 						Add to Cart</button>
 						
