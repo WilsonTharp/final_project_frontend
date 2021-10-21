@@ -15,7 +15,7 @@ const Home = ({isLoggedIn, setToken}) => {
             TokenUtilities.setToken(data.token);
             console.log(data);
             setToken(data.token);
-            history.push('/activities');
+            history.push('/');
             }else{
                 alert(data.error);
             }
@@ -36,11 +36,12 @@ const Home = ({isLoggedIn, setToken}) => {
         newState[userKey] = event.target.value;
         setUser(newState);
     }
-
+    console.log("IS LOGGED IN", isLoggedIn)
 return (
     <>
+    
     {isLoggedIn ?
-        <div className="pageCountainer">
+        <div className="pageContainer">
             <h3>Logged in as {localStorage.getItem(`username`)}</h3>
         </div>
         :

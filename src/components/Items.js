@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import {handleItems} from '../API/index';
+import {handleItems, handleCreateCart} from '../API/index';
 import {useHistory, Link} from 'react-router-dom'
 
 //ASK SHANNON, how to have multiple counters on the same page? They all update together
@@ -7,7 +7,8 @@ import {useHistory, Link} from 'react-router-dom'
 
 const Clicker = ({
 	addCount,
-	subtractCount
+	subtractCount,
+	id
 }) => {
 	return (
 		<>
@@ -69,14 +70,15 @@ const Items = () => {
 						<p>{item.description}</p>
 						<img src={`../../images/${item.picture}`}></img>
 						<div className="quantitySelector">
-							<Clicker addCount = {addCount}
+							<Clicker id = {item.id}
+									addCount = {addCount}
 									 subtractCount = {subtractCount}	
 							/>
 							<Counter count={count}
 							/>
 						</div>
 						
-						<button>
+						<button onClick={handleCreateCart(user.id, item.id, count )}>
 							
 						Add to Cart</button>
 						
