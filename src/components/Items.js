@@ -5,24 +5,21 @@ import {useHistory, Link} from 'react-router-dom'
 //ASK SHANNON, how to have multiple counters on the same page? They all update together
 //somehow use the item id to change count? Very confused. 
 //clickerInUse is null. not sure why.
+
+
 const Clicker = ({
 	addCount,
 	subtractCount,
 	id
 }) => {
-	const clickerInUse=document.getElementById(id)
-	clickerInUse.addEventListener("click", function(){
-		console.log('THE CLICKER BEING CLICKED IS,', clickerInUse)
-	})
+
 //not sure how to format the onClicks, event listener function?
 	return (
 		<>
-		<button onClick={clickerInUse.addEventListener("click", function(){
-			subtractCount
-})}>-</button>
-		<button onClick={clickerInUse.addEventListener("click", function(){
-			addCount
-})}>+</button>
+		<section className="ClickerButtons">
+		<button onClick={subtractCount}>-</button>
+		<button onClick={addCount}>+</button>
+		</section>
 		</>
 	)
 }
@@ -31,7 +28,9 @@ const Counter = ({
 	count
 }) => {
 	return (
+		<section className="count">
 		<p>Quantity {count}</p>
+		</section>
 	)
 }
 
@@ -51,6 +50,11 @@ const Items = () => {
 		{count === 0 ? setCount(0) : setCount(count -1) }
 	}
 
+	// $('.clickerButtons').click(function(e){
+	// 	const newNumber= $(e.target).
+	   
+	// 	$('.count').val()
+	// })
 
 	useEffect(() => {
 		try {
@@ -79,7 +83,7 @@ const Items = () => {
 						<h2>{item.name}</h2>
 						<h3>${item.price}</h3>
 						<p>{item.description}</p>
-						<img src={`../../images/${item.picture}`}></img>
+						<img src={require(`../images/${item.picture}`).default}></img>
 						<div className="quantitySelector">
 							<Clicker id = {id}
 									addCount = {addCount}
