@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon index.js",
+    "start:dev": "nodemon src/index.js",
     "start": "react-scripts start"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.13",
     "react": "^17.0.2",
