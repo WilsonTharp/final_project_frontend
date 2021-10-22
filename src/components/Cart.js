@@ -9,8 +9,10 @@ const Cart = () => {
 
     useEffect( async function() {
         try {
-            //const username = localStorage.getItem('username');
-            const data = await API.makeRequest('/cart', 'GET');
+            const username = localStorage.getItem('username');
+			const userData = await API.makeRequest(`/users/${username}`, 'GET');
+			const id =userData.userId
+            const data = await API.makeRequest(`/cart/${Id}`, 'GET');
             setMyCart(data);
         } catch (error) {
             throw error;
@@ -24,18 +26,14 @@ const Cart = () => {
     //     </div>);
 
     return (
-        <div id='my-cart'>
-            <div className='link-to-cr'>
-                
-            
-            </div>
-            
-                <h1>My Cart</h1>
-            
-            <div className='my-cart-list'>
-                {/* {cartElements} */}
-            </div>
-        </div>
+        <>
+		<div className="pageContainer">
+		<div>
+			<h3>My cart</h3>
+			<p>{myCart.name}</p>
+		</div>
+		</div>
+		</>
     )
 }
 
