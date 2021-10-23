@@ -7,11 +7,11 @@ const Cart = () => {
 
     const [myCart, setMyCart] = useState([]);
 	
-  const [cartItems, setCartItems] = useState([]);
-  
+  const [checkout, setCheckout] = useState([]);
+  const username = localStorage.getItem('username');
     useEffect( async function() {
         try {
-            const username = localStorage.getItem('username');
+            
 			const userData = await API.makeRequest(`/users/${username}`, 'GET');
 			console.log("USERDATA",userData)
 			const Id =userData.id;
@@ -22,38 +22,19 @@ const Cart = () => {
             throw error;
         } 
     }, []);
-	const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-	const onAdd = (myCart) => {
-		const exist = cartItems.find((x) => x.id === myCart.itemsId);
-		if (exist) {
-		  setCartItems(
-			cartItems.map((x) =>
-			  x.id === myCart.itemsId ? { ...exist, qty: exist.qty + 1 } : x
-			)
-		  );
-		} else {
-		  setCartItems([...cartItems, { ...myCart, qty: 1 }]);
-		}
-	  };
-	//   const onRemove = (product) => {
-	// 	const exist = cartItems.find((x) => x.id === product.id);
-	// 	if (exist.qty === 1) {
-	// 	  setCartItems(cartItems.filter((x) => x.id !== product.id));
-	// 	} else {
-	// 	  setCartItems(
-	// 		cartItems.map((x) =>
-	// 		  x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-	// 		)
-	// 	  );
-	// 	}
-	//   };
+	// const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
 	
 
-    // const cartElements = myCart.map((item, i)=>
-    //     <div  className='cart-container'key= {`cart-id-${i}`}>
-    //         <p>{item.name}</p>
-           
-    //     </div>);
+	//   async function onCheckout(e) {
+    //     try {
+    //         await API.makeRequest(`/cart/cartCheckout/${username}`, 'POST', activityData);
+	// 		alert("checkout successful");
+    //     } catch (error) {
+    //         throw error;
+    //     }
+        
+    // }
+	
 	const cartElements= myCart.map((item, i)=>
        { return(<div  key= {`cart-item-id-${i}`}>
             <p>{item.name}</p>
@@ -77,8 +58,8 @@ const Cart = () => {
 		<div>
 			<h3>My cart</h3>
 			<div>{cartElements}</div>
-			<button>Edit cart</button>
-			<button>Checkout</button>
+		
+			<button onClick={(e) => onCheckout(e)}>Checkout</button>
 		</div>
 		</div>
 		</>
