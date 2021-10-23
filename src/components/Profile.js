@@ -1,42 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createElement } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../API/api';
 
 
-
 const Profile = () => {
 
-    const [setMyProfile] = useState([]);
-
+    const [myProfile, setMyProfile] = useState([]);
+	
+  
     useEffect( async function() {
         try {
-            //const username = localStorage.getItem('username');
-            const data = await API.makeRequest(`/users/${username}`, 'GET');
-            setMyProfile(data);
+            const username = localStorage.getItem('username');
+			const userData = await API.makeRequest(`/users/${username}`, 'GET');
+			console.log("USERDATA",userData)
+		
+
+            
+            setMyProfile(userData);
         } catch (error) {
             throw error;
         } 
     }, []);
-
-    // const cartElements = myCart. map((item, i)=>
-    //     <div  className='cart-container'key= {`cart-id-${i}`}>
-    //         <p>{item.itemsId}</p>
-           
-    //     </div>);
+	
 
     return (
-        <div id='my-profile'>
-            <div className='link-to-profile'>
-                
-            
-            </div>
-            
-                <h1>My Cart</h1>
-            
-            <div className='my-profile-list'>
-                {/* {cartElements} */}
-            </div>
-        </div>
+        <>
+		<div className="pageContainer">
+		<div>
+			<h3>My Profile</h3>
+			<div>First name:{myProfile.firstName}</div>
+			<div>Last name:{myProfile.lastName}</div>
+			<div> Username:{myProfile.username}</div>
+			<div> Password:{myProfile.password}</div>
+			<div> Location:{myProfile.location}</div>
+		</div>
+		</div>
+		</>
     )
 }
 
