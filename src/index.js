@@ -22,9 +22,12 @@ const App = () => {
 const [token, setToken] = useState(TokenUtilities.getToken());
 const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 
+
 useEffect(function() {
 	setIsLoggedIn(!!token);
 }, [token]);
+
+
   return (
     <>
 		{/* {isLoggedIn ?
