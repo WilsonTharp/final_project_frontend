@@ -1,108 +1,197 @@
-import {React, useState, useEffect} from 'react';
-import {handleItems, handleCreateCart} from '../API/index';
-import {useHistory, Link} from 'react-router-dom'
+// import {React, useState, useEffect} from 'react';
+// import {handleItems, handleCreateCart} from '../API/index';
+// import {useHistory, Link} from 'react-router-dom'
 
-//ASK SHANNON, how to have multiple counters on the same page? They all update together
-//somehow use the item id to change count? Very confused. 
-//clickerInUse is null. not sure why.
-//look at art collector the first one.
-const Clicker = ({
-	addCount,
-	subtractCount,
-	id
-}) => {
-	const clickerInUse=document.getElementById(id)
-	clickerInUse.addEventListener("click", function(){
-		console.log('THE CLICKER BEING CLICKED IS,', clickerInUse)
-	})
-//not sure how to format the onClicks, event listener function?
-	return (
-		<>
-		<button id={id} onClick={subtractCount}>-</button>
-		<button id={id} onClick={addCount}>+</button>
-		</>
-	)
-}
-
-const Counter = ({
-	count
-}) => {
-	return (
-		<p>Quantity {count}</p>
-	)
-}
+// //ASK SHANNON, how to have multiple counters on the same page? They all update together
+// //somehow use the item id to change count? Very confused. 
+// //clickerInUse is null. not sure why.
 
 
+// const Clicker = ({
+// 	addCount,
+// 	subtractCount,
+// 	id
+// }) => {
 
-const Items = () => {
-	const [count, setCount] = useState(0);
-	const [itemId, setItemId] = useState();
-	const [userId, setUserId] = useState();
-	const [items, setItems] = useState([]);
+// //not sure how to format the onClicks, event listener function?
+// 	return (
+// 		<>
+// 		<section className="ClickerButtons">
+// 		<button onClick={subtractCount}>-</button>
+// 		<button onClick={addCount}>+</button>
+// 		</section>
+// 		</>
+// 	)
+// }
 
-	const addCount = () => {
+// const Counter = ({
+// 	count
+// }) => {
+// 	return (
+// 		<section className="count">
+// 		<p>Quantity {count}</p>
+// 		</section>
+// 	)
+// }
+
+
+
+// const Items = () => {
+// 	const [count, setCount] = useState(0);
+// 	const [itemId, setItemId] = useState();
+// 	const [userId, setUserId] = useState();
+// 	const [items, setItems] = useState([]);
+
+// 	const addCount = () => {
 		
-		setCount(count +1);
-	}
+// 		setCount(count +1);
+// 	}
 
-	const subtractCount = () => {
+// 	const subtractCount = () => {
 		
-		{count === 0 ? setCount(0) : setCount(count -1) }
-	}
+// 		{count === 0 ? setCount(0) : setCount(count -1) }
+// 	}
 
+// 	// $('.clickerButtons').click(function(e){
+// 	// 	const newNumber= $(e.target).
+	   
+// 	// 	$('.count').val()
+// 	// })
 
-	useEffect(() => {
-		try {
-			Promise.all([handleItems()]).then(([data]) => {
-				setItems(data);
-				console.log(data);
-			}), [];
-		} catch (error) {
-			console.log("ERROR", error);
-		}
-	}, []);
+// 	useEffect(() => {
+// 		try {
+// 			Promise.all([handleItems()]).then(([data]) => {
+// 				setItems(data);
+// 				console.log(data);
+// 			}), [];
+// 		} catch (error) {
+// 			console.log("ERROR", error);
+// 		}
+// 	}, []);
 
 	
-//need to work on the onclick for the Add to cart button
-	return (
-		<div>
+// //need to work on the onclick for the Add to cart button
+// 	return (
+// 		<div>
 			
-		<div className="pageContainer">
-		<h1 className="pageTitle">Items:</h1>
-		<div>
-			{items.map((item, id) => {
-				console.log(item)
-				return (
-					<>
-					<div className="singleItem">
-						<h2>{item.name}</h2>
-						<h3>${item.price}</h3>
-						<p>{item.description}</p>
-						<img src={`../../images/${item.picture}`}></img>
-						<div className="quantitySelector">
-							<Clicker id = {id}
-									addCount = {addCount}
-									 subtractCount = {subtractCount}	
-							/>
-							<Counter count={count}
-							/>
-						</div>
+// 		<div className="pageContainer">
+// 		<h1 className="pageTitle">Items:</h1>
+// 		<div>
+// 			{items.map((item, id) => {
+// 				console.log(item)
+// 				return (
+// 					<>
+// 					<div className="singleItem">
+// 						<h2>{item.name}</h2>
+// 						<h3>${item.price}</h3>
+// 						<p>{item.description}</p>
+// 						<img src={require(`../images/${item.picture}`).default}></img>
+// 						<div className="quantitySelector">
+// 							<Clicker id = {id}
+// 									addCount = {addCount}
+// 									 subtractCount = {subtractCount}	
+// 							/>
+// 							<Counter count={count}
+// 							/>
+// 						</div>
 						
-						<button onClick={handleCreateCart(localStorage.getItem(`username`), item.id, count )}>
+// 						<button onClick={handleCreateCart(localStorage.getItem(`username`), item.id, count )}>
 							
-						Add to Cart</button>
+// 						Add to Cart</button>
 						
-						<hr />
-					</div>
+// 						<hr />
+// 					</div>
 
 				
-					</>
-				)
-			})}
-		</div>
-		</div>
-	</div>
-)
-}
+// 					</>
+// 				)
+// 			})}
+// 		</div>
+// 		</div>
+// 	</div>
+// )
+// }
 
+// export default Items;
+
+import { React, useState, useEffect } from "react";
+import { handleItems, handleCreateCart } from "../API/index";
+import { useHistory, Link } from "react-router-dom";
+//ASK SHANNON, how to have multiple counters on the same page? They all update together
+//somehow use the item id to change count? Very confused.
+//clickerInUse is null. not sure why.
+const IndividualItem = ({ item }) => {
+  //moved the count state item into the Clicker since we dont need to access it anywhere inside Items -> only relevant to the clicker
+  const [count, setCount] = useState(0);
+  const [itemId, setItemId] = useState();
+  const [userId, setUserId] = useState();
+  const [items, setItems] = useState([]);
+  //moved both functions inside the Clicker
+  const addCount = () => {
+    setCount(count + 1);
+  };
+  const subtractCount = () => {
+    {
+      count === 0 ? setCount(0) : setCount(count - 1);
+    }
+  };
+  return (
+    <>
+      <div className={"singleItem" + item.id}>
+        <h2>{item.name}</h2>
+        <h3>${item.price}</h3>
+        <p>{item.description}</p>
+        <img src={require(`../images/${item.picture}`).default}></img>
+        <div className="quantitySelector">
+          <button id={item.id} onClick={subtractCount}>
+            -
+          </button>
+          <p>Quantity {count}</p>
+          <button id={item.id} onClick={addCount}>
+            +
+          </button>
+        </div>
+        <button
+          onClick={() =>
+            handleCreateCart(localStorage.getItem(`username`), item.id, count)
+          }
+        >
+          Add to Cart
+        </button>
+        <hr />
+      </div>
+    </>
+  );
+};
+const Items = () => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    try {
+      Promise.all([handleItems()]).then(([data]) => {
+        setItems(data);
+        console.log("ITEM ", items);
+      }),
+        [];
+    } catch (error) {
+      console.log("ERROR", error);
+    }
+  }, []);
+  return (
+    <div>
+      <div className="pageContainer">
+        <h1 className="pageTitle">Items:</h1>
+        <div>
+          {items.map((item) => {
+            console.log(item);
+            return (
+              <div key={item.id}>
+                <IndividualItem item={item} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
 export default Items;
