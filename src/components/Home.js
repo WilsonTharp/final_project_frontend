@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import API from '../API/api';
 import TokenUtilities from '../API/token';
 
-const Home = ({setToken}) => {
+const Home = ({isLoggedIn, setToken}) => {
     let history = useHistory();
     const [user, setUser] = useState({username: '', password: ''});
 
@@ -15,7 +15,7 @@ const Home = ({setToken}) => {
             TokenUtilities.setToken(data.token);
             console.log(data);
             setToken(data.token);
-            history.push('/activities');
+            history.push('/');
             }else{
                 alert(data.error);
             }
@@ -36,10 +36,17 @@ const Home = ({setToken}) => {
         newState[userKey] = event.target.value;
         setUser(newState);
     }
-
+    console.log("IS LOGGED IN", isLoggedIn)
 return (
+    <>
+    
+    {isLoggedIn ?
+        <div className="pageContainer">
+            <h3>Logged in as {localStorage.getItem(`username`)}</h3>
+        </div>
+        :
     <div className="pageContainer">
-        <h2>Login Here</h2>
+        <h2>Login</h2>
 
         <form  className ='form' onSubmit={handleSubmit} >
                 <input type="text" 
@@ -61,6 +68,8 @@ return (
 					</div>
         </form>
     </div>
+}
+    </>
 )
 }
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import API from '../API/api';
+import TokenUtilities from '../API/token';
 
 
-const Register = () => {
+const Register = (isLoggedIn, setToken) => {
 
     let history = useHistory();
 
@@ -13,25 +14,43 @@ const Register = () => {
         try {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
-            console.log(data);
-            // if(data.token){
+            console.log('THIS IS DATA', data);
+            if(isLoggedIn){
             //     alert(data.message);
-            //     history.push('/users/login');
-            // }else{
-            //     alert(data.error);
-            // }
+                history.push('/');
+            }else{
+                // alert(data.error);
+            }
         } catch (error) {
             alert(error);
         } 
         
     }
 
+    async function storeToken() {
+        try {
+           
+            const data = await API.makeRequest('/users/login', 'POST', user);
+            if(data.token){
+            TokenUtilities.setToken(data.token);
+            console.log(data);
+            setToken(data.token);
+            history.push('/');
+            }else{
+                alert(data.error);
+            }
+        } catch (error) {
+            alert(error);
+        } 
+    }
+
 
 
 function handleSubmit(event) {
     event.preventDefault();
-    localStorage.setItem('username', registerUser.username);
     registerGetToken();
+    storeToken();
+    
 }
 
 function handleInput(event) {

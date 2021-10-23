@@ -43,7 +43,7 @@ useEffect(function() {
 					<Route exact path="/">
 						<Home
 							setToken ={setToken}
-							// setLoggedIn={setLoggedIn}
+							isLoggedIn = {isLoggedIn}
 							// username={username}
 							// password={password}
 							// setUsername={setUsername}
@@ -55,7 +55,9 @@ useEffect(function() {
 					</Route>
 
 					<Route path="/register">
-						<Register />
+						<Register 
+						isLoggedIn = {isLoggedIn} setToken={setToken}
+						/>
 					</Route>
 				
 					<Route path="/items">
