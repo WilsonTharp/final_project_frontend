@@ -6,8 +6,11 @@ import API from '../API/api';
 const Cart = () => {
 
     const [myCart, setMyCart] = useState([]);
+
 	
-  const [checkout, setCheckout] = useState([]);
+	
+  
+  
   const username = localStorage.getItem('username');
     useEffect( async function() {
         try {
@@ -15,6 +18,14 @@ const Cart = () => {
 			const userData = await API.makeRequest(`/users/${username}`, 'GET');
 			console.log("USERDATA",userData)
 			const Id =userData.id;
+		
+			setCheckout({
+				usersId: Id,
+				processed : true, 
+				inProcess : false,
+				
+				
+			  })
 
             const data = await API.makeRequest(`/cart/${Id}`, 'GET');
             setMyCart(data);
@@ -23,17 +34,24 @@ const Cart = () => {
         } 
     }, []);
 	// const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-	
-
-	//   async function onCheckout(e) {
-    //     try {
-    //         await API.makeRequest(`/cart/cartCheckout/${username}`, 'POST', activityData);
-	// 		alert("checkout successful");
-    //     } catch (error) {
-    //         throw error;
-    //     }
+	const [checkout, setCheckout] = useState({
+		usersId: null,
+		processed : true, 
+		inProcess : false,
+		
+		
+	  });
+	  
+	  async function onCheckout(e) {
+		  
+        try {
+            await API.makeRequest(`/cart/cartCheckout/${username}`, 'PATCH', checkout);
+			alert("checkout successful");
+        } catch (error) {
+            throw error;
+        }
         
-    // }
+    }
 	
 	const cartElements= myCart.map((item, i)=>
        { return(<div  key= {`cart-item-id-${i}`}>
