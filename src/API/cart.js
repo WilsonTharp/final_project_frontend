@@ -16,6 +16,7 @@ export async function handleCreateCart(userId,itemId,quantity){
         }).then(response => response.json())
         .then(result => {
             console.log(result)
+        
         })
     } catch (error) {
         console.error(error);

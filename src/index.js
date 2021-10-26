@@ -21,7 +21,7 @@ const App = () => {
 
 const [token, setToken] = useState(TokenUtilities.getToken());
 const [isLoggedIn, setIsLoggedIn] = useState(!!token);
-
+const [total, setTotal] = useState(0);
 
 useEffect(function() {
 	setIsLoggedIn(!!token);
@@ -65,7 +65,8 @@ useEffect(function() {
 					</Route>
 
 					<Route path="/cart">
-						<Cart />
+						<Cart
+							total={total} setTotal={setTotal} />
 					</Route>
 
 					<Route path="/profile">

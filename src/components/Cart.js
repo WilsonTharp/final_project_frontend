@@ -3,14 +3,9 @@ import { Link } from 'react-router-dom';
 import API from '../API/api';
 
 
-const Cart = () => {
+const Cart = (total, setTotal) => {
 
     const [myCart, setMyCart] = useState([]);
-
-	
-	
-  
-  
   const username = localStorage.getItem('username');
     useEffect( async function() {
         try {
@@ -27,13 +22,59 @@ const Cart = () => {
 				
 			  })
 
-            const data = await API.makeRequest(`/cart/${Id}`, 'GET');
-            setMyCart(data);
+			  const data = await API.makeRequest(`/cart/${Id}`, 'GET');
+			  setMyCart(data);
         } catch (error) {
             throw error;
         } 
     }, []);
-	// const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
+	
+	
+
+    const CartIndividualItem = ({ item , quantity}) => {
+		
+		const [count, setCount] = useState(quantity);
+		
+		
+		const addCount = (qty) => {
+
+		  setCount(count + 1);
+		};
+		const subtractCount = () => {
+		  {
+			count === 0 ? setCount(0) : setCount(count - 1);
+		  }
+		};
+
+		
+		return (
+		  <>
+			<div className={"singleItem" + item.id}>
+			  <h2>{item.name}</h2>
+			  <h3>${item.price}</h3>
+			  <p>{item.description}</p>
+			  <p>{item.quantity}</p>
+			  <div className="quantitySelector">
+				<button id={item.id} onClick={subtractCount}>
+				  -
+				</button>
+				<p>Quantity { count}</p>
+				
+				<button id={item.id} onClick={addCount}>
+				  +
+				</button>
+			  </div>
+			  <p>Items total: {`${ count} X ${item.price}= ${ parseInt( count *item.price)}`}</p>
+			  <img src={require(`../images/${item.picture}`).default}></img>
+			  
+			  
+			  <hr />
+			</div>
+		  </>
+		);
+	  };
+
+
 	const [checkout, setCheckout] = useState({
 		usersId: null,
 		processed : true, 
@@ -55,19 +96,10 @@ const Cart = () => {
 	
 	const cartElements= myCart.map((item, i)=>
        { return(<div  key= {`cart-item-id-${i}`}>
-            <p>{item.name}</p>
-            <p>{item.description}</p>
-			<p>Price:{item.price}</p>
-			<div className="col-2 text-right">
-              {item.qty} x ${item.price}
-            </div>
+            
 
-			{/* <button onClick={() => onRemove(item)} className="remove">
-                Remove 
-              </button>{' '} */}
-              <button onClick={() => onAdd(item)} className="add">
-                Add
-              </button>
+                <CartIndividualItem item={item} quantity={item.quantity} />
+			
         </div>)});
 
     return (
@@ -76,6 +108,8 @@ const Cart = () => {
 		<div>
 			<h3>My cart</h3>
 			<div>{cartElements}</div>
+			<div>Total: {}</div>
+
 		
 			<button onClick={(e) => onCheckout(e)}>Checkout</button>
 		</div>
