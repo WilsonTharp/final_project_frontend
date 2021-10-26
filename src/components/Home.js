@@ -6,7 +6,7 @@ import TokenUtilities from '../API/token';
 const Home = ({isLoggedIn, setToken}) => {
     let history = useHistory();
     const [user, setUser] = useState({username: '', password: ''});
-
+    
     async function storeToken() {
         try {
            

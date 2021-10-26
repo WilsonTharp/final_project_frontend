@@ -1,3 +1,4 @@
+
 import { React, useState, useEffect } from "react";
 import { handleItems, handleCreateCart } from "../API/index";
 import { useHistory, Link } from "react-router-dom";
@@ -19,10 +20,6 @@ const IndividualItem = ({ item, userId }) => {
 	
 	
   };
-//   console.log('itemid is', itemId)
-  
-
-
 
   return (
     <>
