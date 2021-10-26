@@ -39,7 +39,7 @@ const Home = ({isLoggedIn, setToken}) => {
     console.log("IS LOGGED IN", isLoggedIn)
 return (
     <>
-    
+      <img className="homepageImage" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
     {isLoggedIn ?
         <div className="pageContainer">
             <h3>Logged in as {localStorage.getItem(`username`)}</h3>
@@ -67,6 +67,7 @@ return (
 						<Link to="/register" className="signUpLink">Sign Up</Link>
 					</div>
         </form>
+      
     </div>
 }
     </>

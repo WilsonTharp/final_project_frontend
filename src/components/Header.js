@@ -16,7 +16,7 @@ const Header = ({isLoggedIn, setToken}) => {
     
 	return (
 		<header className="header">
-			<h1>Cereal Bar</h1>
+			<img className="headerImg" src={require(`../images/the_cereal_aisle_logo-01.png`).default} height= '60px'></img>
 			<input className="menu-button" type="checkbox" id="menu-button" />
 			<label className="menu-icon" for="menu-button"><span className="nav-icon"></span></label>
 			<ul className="menu">
