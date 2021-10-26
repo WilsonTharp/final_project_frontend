@@ -43,8 +43,8 @@ const IndividualItem = ({ item, userId }) => {
         <button
 		//takes two clicks to setItemId? But why?
           onClick={() => {
-			setItemId(item.id);
-            handleCreateCart(userId, itemId, count)
+			// setItemId(item.id);
+            handleCreateCart(userId, item.id, count)
           }}
         >
           Add to Cart
