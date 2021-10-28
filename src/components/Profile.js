@@ -7,6 +7,7 @@ const Profile = () => {
 
     const [myProfile, setMyProfile] = useState([]);
 	
+	
   
     useEffect( async function() {
         try {
