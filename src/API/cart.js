@@ -17,8 +17,8 @@ export async function handleCreateCart(userId,itemId,count){
             },
                 
             body: JSON.stringify({
-                    userId: userId,
-                    itemId: itemId,
+                    usersId: userId,
+                    itemsId: itemId,
                     quantity: count,
             }),
         });
