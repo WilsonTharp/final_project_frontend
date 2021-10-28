@@ -20,7 +20,6 @@ const IndividualItem = ({ item, userId }) => {
 	
 	
   };
-
   return (
     <>
       <div className={"singleItem" + item.id}>

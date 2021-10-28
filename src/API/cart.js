@@ -25,7 +25,6 @@ export async function handleCreateCart(userId,itemId,count){
         const data = await response.json();
         console.log('CreateCART', data)
 		return data;
-
     } catch (error) {
         console.error(error);
     }
