@@ -16,13 +16,13 @@ const Header = ({isLoggedIn, setToken}) => {
     
 	return (
 		<header className="header">
-			<h1>Cereal Bar</h1>
+			<Link to="/"><img className="headerImg" src={require(`../images/the_cereal_aisle_logo-01.svg`).default} height= '80px'></img></Link>
 			<input className="menu-button" type="checkbox" id="menu-button" />
 			<label className="menu-icon" for="menu-button"><span className="nav-icon"></span></label>
 			<ul className="menu">
 				<li><Link to="/items" className="navItem">Cereal</Link></li>
 				<li><Link to="/profile" className="navItem">Profile</Link></li>
-				<li><Link to="/cart" className="navItem">Cart</Link></li>
+				
 				
 				
 				{isLoggedIn ?
@@ -31,6 +31,8 @@ const Header = ({isLoggedIn, setToken}) => {
 					</>
 					: <li><Link to="/" className="navItem">Log In</Link></li>
 				}
+
+<li><Link to="/cart" className="navItem"><img className="headerImg2" src={require(`../images/cart_icon_empty-01.png`).default} height= '60px'></img></Link></li>
 			</ul>
 		</header>
 	)

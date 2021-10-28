@@ -1,40 +1,53 @@
-
+body{
+    background-color: #fbbd1c;
+}
 
 
 .header{
-    background-color: lightcoral;
+    background-color: #d72045;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
     position:fixed;
     width: 100%;
+    height: 100px;
     z-index: 3;
 }
 
+.headerImg{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.headerImg2{
+    height: 40px;
+}
+
 .header ul{
+    font-family: Bungee;
+    font-size: 20px;
     margin: 0;
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: lightcoral;
+    background-color: #d72045;
 }
 
 .navItem{
+    margin-right: 20px;
+    color: white;
     display: block;
     padding: 20px;
     text-decoration: none;
-    border-right: 1px solid #aaa;
+    height: 100px;
+    width: auto;
+    line-height: 50px;
+    /* border-right: 1px solid white; */
 }
 
 .navItem:hover{
-    background-color: lightcyan;
+    background-color: #fbbd1c;
     cursor: pointer;
 }
 
-.header h1{
-    float: left;
-    display: block;
-    font-size: 2em;
-    padding: 10px 20px;
-}
 
 .header .menu{
     clear: both;
@@ -43,42 +56,42 @@
 }
 
 .header .menu-icon{
-    padding: 28px 20px;
+    padding: 50px 40px;
     position: relative;
     float: right;
 
 }
 
 .header .menu-icon .nav-icon{
-    background: black;
+    background: white;
     display: block;
-    height: 2px;
-    width: 18px;
+    height: 4px;
+    width: 30px;
     position: relative;
     transition: background .2s ease-out;
     cursor: pointer;
 }
 
 .header .menu-icon .nav-icon:before{
-    background: black;
+    background: white;
     content: "";
     display: block;
     height: 100%;
     width: 100%;
     position: absolute;
     transition: all .2s ease-out;
-    top: 5px;
+    top: 10px;
 }
 
 .header .menu-icon .nav-icon:after{
-    background: black;
+    background: white;
     content: "";
     display: block;
     height: 100%;
     width: 100%;
     position: absolute;
     transition: all .2s ease-out;
-    top: -5px;
+    top: -10px;
 }
 
 .header .menu-button{
@@ -86,7 +99,7 @@
 }
 
 .header .menu-button:checked ~ .menu{
-    max-height: 240px;
+    max-height: 500px;
 }
 
 .header .menu-button:checked ~ .menu-icon .nav-icon{
@@ -103,7 +116,125 @@
     top:0;
 }
 
-@media (min-width:48em){
+
+
+.pageContainer h3{
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 50px;
+    color: white;
+    width: 500px;
+    height: 50px;
+    font-family: Bungee;
+    font-size: 40px;
+}
+
+.pageContainer h1{
+    color: #d72045;
+    margin-top: -15px;
+}
+
+
+
+
+.pageContainerLogin{
+    position: absolute;
+    padding-top: 200px;
+    margin-left: 50px;
+    height: 200px;
+    width: 250px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pageContainerLogin input{
+    margin-bottom: 10px;
+    height: 50px;
+    width: 250px;
+    display: block;
+    text-align: center;
+}
+
+.homepageImage{
+    float:right;
+    height: 600px;
+    width: auto;
+    margin-top: 150px;
+    
+}
+
+.homepageImage2{
+    float:right;
+    height: 600px;
+    width: auto;
+    margin-top: 150px;
+    
+}
+
+.homepageImage3{
+    float:right;
+    height: 600px;
+    width: auto;
+    margin-top: 150px;
+    
+}
+
+.logInButton{
+    background-color:#d72045;
+    color: white;
+    width: 125px;
+    height: 50px;
+    font-family: Bungee;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.logInButton:hover{
+    background-color: white;
+    color:#d72045;
+    cursor: pointer;
+}
+
+.signUpSection p{
+    color: #d72045;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 12px;
+    font-size: 20px;
+}
+
+.signUpSection button{
+    background-color: #d72045;
+    color: white;
+    width: 125px;
+    height: 50px;
+    font-family: Bungee;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.signUpSection button:hover{
+    background-color: white;
+    color: #d72045;;
+    
+}
+
+.signUpSection .signUpLink{
+    color: white;
+    text-decoration: none;
+    width: 125px;
+    height: 50px;
+}
+
+.signUpSection .signUpLink:hover{
+    color: #d72045;
+    text-decoration: none;
+}
+
+@media (min-width:60em){
     .header li{
         float: left;
     }
@@ -119,8 +250,65 @@
     .header .menu-icon{
         display: none;
     }
+
+    
 }
 
-.pageContainer{
-    padding-top: 100px;
+@media (max-width:60em){
+
+    .pageContainer h1{
+        display: flex;
+        align-items: center;
+        
+        
+        /* margin-top: 0px; */
+    }
+
+    
+
+    
+
+    
+    .homepageImage{
+        position: relative;
+        display: block;
+        float: right;
+        width: 500px;
+        height: auto;
+        margin-top: 225px;
+        z-index: -1;
+       
+    }
+    .homepageImage2{
+        position: relative;
+        display: block;
+        float: right;
+        width: 500px;
+        height: auto;
+        margin-top: 320px;
+        z-index: 0;
+       
+    }
+
+    .homepageImage3{
+        position: relative;
+        display: block;
+        float: right;
+        width: 500px;
+        height: auto;
+        margin-top: 270px;
+        z-index: 0;
+       
+    }
+
+    .pageContainerLogin{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+
+       
+    }
+
+    
 }

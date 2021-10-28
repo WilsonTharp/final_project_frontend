@@ -39,15 +39,18 @@ const Home = ({isLoggedIn, setToken}) => {
     console.log("IS LOGGED IN", isLoggedIn)
 return (
     <>
-    
+      
     {isLoggedIn ?
         <div className="pageContainer">
-            <h3>Logged in as {localStorage.getItem(`username`)}</h3>
+           
+            <h3>Welcome back <h1>{localStorage.getItem(`username`)}</h1></h3>
+            <img className="homepageImage3" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
         </div>
         :
-    <div className="pageContainer">
-        <h2>Login</h2>
-
+        <>
+    <div className="pageContainerLogin">
+       
+        
         <form  className ='form' onSubmit={handleSubmit} >
                 <input type="text" 
                         required
@@ -61,13 +64,16 @@ return (
                         value={user.password}
                         onChange={handleInput}
                         placeholder="password"></input>
-                <button>Log In</button>
+                <button className="logInButton">Log In</button>
                 <div className="signUpSection">
 						<p> Don't have an account? </p>
-						<Link to="/register" className="signUpLink">Sign Up</Link>
+						<button><Link to="/register" className="signUpLink">Sign Up</Link></button>
 					</div>
         </form>
+      
     </div>
+    <img className="homepageImage" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
+    </>
 }
     </>
 )
