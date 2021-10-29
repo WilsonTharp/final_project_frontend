@@ -104,7 +104,7 @@ const Cart = (total, setTotal) => {
 
     return (
         <>
-		<div className="pageContainer">
+		<div className="pageContainerLogin">
 		<div>
 			<h3>My cart</h3>
 			<div>{cartElements}</div>

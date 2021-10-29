@@ -17,6 +17,7 @@ import {
   Cart,
   Register
 } from './components';
+import Admin from './components/Admin';
 
 const App = () => {
 
@@ -87,6 +88,10 @@ console.log("isAdmin",isAdmin)
 
 					<Route path="/profile">
 						<Profile />
+					</Route>
+
+					<Route path="/admin">
+						<Admin />
 					</Route>
 
 					
