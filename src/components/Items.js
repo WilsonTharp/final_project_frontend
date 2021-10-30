@@ -22,11 +22,11 @@ const IndividualItem = ({ item, userId }) => {
   };
   return (
     <>
-      <div className={"singleItem" + item.id}>
+      <div className="singleItem">
+        <div className="itemText">
         <h2>{item.name}</h2>
         <h3>${item.price}</h3>
         <p>{item.description}</p>
-        <img src={require(`../images/${item.picture}`).default}></img>
         <div className="quantitySelector">
           <button id={item.id} onClick={subtractCount}>
             -
@@ -35,21 +35,27 @@ const IndividualItem = ({ item, userId }) => {
           <button id={item.id} onClick={addCount}>
             +
           </button>
+          </div>
+          <button
+	
+  onClick={() => {
+// setItemId(item.id);
+    handleCreateCart(userId, item.id, count)
+  }}
+>
+  Add to Cart
+</button>
+        
         </div>
-        <button
-		//takes two clicks to setItemId? But why?
-          onClick={() => {
-			// setItemId(item.id);
-            handleCreateCart(userId, item.id, count)
-          }}
-        >
-          Add to Cart
-        </button>
+        <img src={require(`../images/${item.picture}`).default}></img>
+        
+       
         <hr />
       </div>
     </>
   );
 };
+
 const Items = () => {
   const [items, setItems] = useState([]);
   const [userId, setUserId] = useState(0);
