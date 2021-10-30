@@ -70,7 +70,7 @@ useEffect(function() {
 					</Route>
 
 					<Route path="/profile">
-						<Profile />
+						<Profile total={total}/>
 					</Route>
 
 					
