@@ -1,12 +1,50 @@
 import React, { useState, useEffect, createElement } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../API/api';
-import { handleUsers } from "../API/index";
+import { handleUsers, handleCreateItem } from "../API/index";
+
+const CreateItem = ({setCreateItem}) => {
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+  const [picture, setPicture] = useState('');
+
+  async function handleSubmit(event) {
+      event.preventDefault();
+      await handleCreateItem(name,price, description, picture);
+      setCreateItem(false);
+  }
+
+  return (
+    <div className="createItem">
+        <form>
+            <button className="closeMenu" onClick={() => setCreateItem(false)}>x</button>
+            <div>
+            <div className="createInputs">
+            <input value={name} onChange= {(e) => setName(e.target.value)}  placeholder="name"></input>
+            </div>
+            <div className="createInputs">
+            <input  value={price} onChange= {(e) => setPrice(e.target.value)} placeholder="price"></input>
+            </div>
+            <div className="createInputs">
+            <input  value={description} onChange= {(e) => setDescription(e.target.value)} placeholder="description"></input>
+            </div>
+            <div className="createInputs">
+            <input  value={picture} onChange= {(e) => setPicture(e.target.value)} placeholder="picture"></input>
+            </div>
+            
+            <button className="createItemPublishButton" onClick={handleSubmit}>Publish</button>
+            </div>
+        </form>
+    </div>
+)
+}
 
 
 const Admin = () => {
 
     const [ourUsers, setOurUsers] = useState([]);
+    const [createItem, setCreateItem] = useState(false);
 	
 	console.log("OUR USERS", ourUsers)
 	
@@ -20,13 +58,24 @@ const Admin = () => {
         } catch (error) {
           console.log("ERROR", error);
         }
-      }, []);
+      }, [createItem]);
       
       return (
         <div>
           <div className="pageContainerLogin">
-            <h1 className="pageTitle">Current Users:</h1>
+            
             <div>
+            <button className= "createButton"
+			onClick={(event) => {
+				event.preventDefault();
+				setCreateItem(true);
+			}}>
+				Create Item</button>
+			 {
+                createItem &&
+                <CreateItem setCreateItem={setCreateItem}/>
+            }
+		<h1 className="pageTitle">Current Users:</h1>
               {ourUsers.map((users) => {
                 console.log(users);
                 return (
