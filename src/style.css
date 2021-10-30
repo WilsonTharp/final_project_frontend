@@ -263,6 +263,7 @@ body{
         
         /* margin-top: 0px; */
     }
+}
 
     
 
@@ -310,5 +311,19 @@ body{
        
     }
 
+    .singleItem {
+        width: 400px;
+        height: 400px;
+        margin-left: none;
+        background-color: white;
+        display: flex;
+    }
+
+    .singleItem img{
+        height: 250px;
+        width: auto;
+        float: right;
+    }
+
+
     
-}

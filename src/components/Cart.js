@@ -2,83 +2,84 @@ import React, { useState, useEffect, createElement } from 'react';
 import { Link } from 'react-router-dom';
 import API from '../API/api';
 import Total from './Total';
-const CartIndividualItem = ({ item , quantity, price, setRender, Id}) => {
+import CartIndividualItem from './CartIndividualItem';
+// const CartIndividualItem = ({ item , quantity, price, setRender, Id}) => {
 		
-	const [count, setCount] = useState(quantity);
+// 	const [count, setCount] = useState(quantity);
 	
-	async function addCount() {
-		 let newCount = count +1
-		await setCount(newCount)	
-		console.log(count)
-	}
+// 	async function addCount() {
+// 		 let newCount = count +1
+// 		await setCount(newCount)	
+// 		console.log(count)
+// 	}
 
-	console.log("out side" ,count)
+// 	console.log("out side" ,count)
 
-	function subtractCount() {
-		count === 0 ? setCount(0) : setCount(count - 1);
-	}
+// 	function subtractCount() {
+// 		count === 0 ? setCount(0) : setCount(count - 1);
+// 	}
 
-	useEffect( async function apiCallToUpdateCart () {
-		try {
-			const username = localStorage.getItem('username');	
-		console.log(count)
-			const data=await API.makeRequest(`/cart/editCart/${username}`, 'PATCH', {itemsId:item.id ,quantity:count});
-			setRender(data.quantity)
-		} catch (error) {
-			throw error;
-		}
+// 	useEffect( async function apiCallToUpdateCart () {
+// 		try {
+// 			const username = localStorage.getItem('username');	
+// 		console.log(count)
+// 			const data=await API.makeRequest(`/cart/editCart/${username}`, 'PATCH', {itemsId:item.id ,quantity:count});
+// 			setRender(data.quantity)
+// 		} catch (error) {
+// 			throw error;
+// 		}
 		
-	}, [count]);
-	async function updateCart(){
-		await addCount();
+// 	}, [count]);
+// 	async function updateCart(){
+// 		await addCount();
 	
-	}
+// 	}
 
-	async function removeItem(e, id){
-		try {
+// 	async function removeItem(e, id){
+// 		try {
 		
-			console.log("cartId", id)
-			//const data = await API.makeRequest(`/cart/inProcess/${Id}`, 'GET');
-			await API.makeRequest(`/cart/${id}`, 'DELETE' );
-		} catch (error) {
-			throw error;
-		}
+// 			console.log("cartId", id)
+// 			//const data = await API.makeRequest(`/cart/inProcess/${Id}`, 'GET');
+// 			await API.makeRequest(`/cart/${id}`, 'DELETE' );
+// 		} catch (error) {
+// 			throw error;
+// 		}
 	
-	}
-	return (
-	  <>
+// 	}
+// 	return (
+// 	  <>
 	  
 
-		<div className={"singleItem" + item.id}>
-		  <h2>{item.name}</h2>
-		  <h3>${item.price}</h3>
-		  <p>{item.description}</p>
-		  <div className="quantitySelector">
-			<button id={item.id} onClick={subtractCount}>
-			  -
-			</button>
-			<p>Quantity { count}</p>
+// 		<div className={"singleItem" + item.id}>
+// 		  <h2>{item.name}</h2>
+// 		  <h3>${item.price}</h3>
+// 		  <p>{item.description}</p>
+// 		  <div className="quantitySelector">
+// 			<button id={item.id} onClick={subtractCount}>
+// 			  -
+// 			</button>
+// 			<p>Quantity { count}</p>
 			
-			<button id={item.id} onClick={updateCart}>
-			  +
-			</button>
-			<div>
-			<button id={item.id} onClick={(e) => removeItem(e, item.id)}>
-			  Remove Item
-			</button>	
-			</div>
-		  </div>
-		  <p>Items total: {`${ count} X ${item.price}= ${ parseInt( count *item.price)}`}</p>
-		  <img src={require(`../images/${item.picture}`).default}></img>
+// 			<button id={item.id} onClick={updateCart}>
+// 			  +
+// 			</button>
+// 			<div>
+// 			<button id={item.id} onClick={(e) => removeItem(e, item.id)}>
+// 			  Remove Item
+// 			</button>	
+// 			</div>
+// 		  </div>
+// 		  <p>Items total: {`${ count} X ${item.price}= ${ parseInt( count *item.price)}`}</p>
+// 		  <img src={require(`../images/${item.picture}`).default}></img>
 		  
 		  
-		  <hr />
-		</div> 
+// 		  <hr />
+// 		</div> 
 		
 	  
-	  </>
-	);
-  };
+// 	  </>
+// 	);
+//   };
 const Cart = ({total, setTotal}) => {
 
     const [myCart, setMyCart] = useState([]);

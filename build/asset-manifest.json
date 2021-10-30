@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d3a37a7c.chunk.css",
+    "main.js": "/static/js/main.00a25168.chunk.js",
+    "main.js.map": "/static/js/main.00a25168.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.be91e4c2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.be91e4c2.js.map",
+    "static/js/2.8feb6356.chunk.js": "/static/js/2.8feb6356.chunk.js",
+    "static/js/2.8feb6356.chunk.js.map": "/static/js/2.8feb6356.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.d3a37a7c.chunk.css.map": "/static/css/main.d3a37a7c.chunk.css.map",
+    "static/js/2.8feb6356.chunk.js.LICENSE.txt": "/static/js/2.8feb6356.chunk.js.LICENSE.txt",
+    "static/media/apple_jacks.jpg": "/static/media/apple_jacks.99bc78b6.jpg",
+    "static/media/boo_berry.jpg": "/static/media/boo_berry.e498fe34.jpg",
+    "static/media/captian_crunch.jpg": "/static/media/captian_crunch.91d9860a.jpg",
+    "static/media/cereal_hand_transparent.png": "/static/media/cereal_hand_transparent.95dd21d7.png",
+    "static/media/cereal_images.psd": "/static/media/cereal_images.bb2c2e29.psd",
+    "static/media/cheerios.jpg": "/static/media/cheerios.7f1c08ef.jpg",
+    "static/media/froot_loops.jpg": "/static/media/froot_loops.26f86979.jpg",
+    "static/media/frosted_flakes.jpg": "/static/media/frosted_flakes.4e4b822d.jpg",
+    "static/media/fruity_pebbles.jpg": "/static/media/fruity_pebbles.75857472.jpg",
+    "static/media/honey_bunches_of_oats.jpg": "/static/media/honey_bunches_of_oats.c1bcc1ae.jpg",
+    "static/media/honey_nut_cheerios.jpg": "/static/media/honey_nut_cheerios.47fb48e0.jpg",
+    "static/media/king_vitaman.jpg": "/static/media/king_vitaman.d616f9fd.jpg",
+    "static/media/kix.jpg": "/static/media/kix.6bd8b1e0.jpg",
+    "static/media/lucky_charms.jpg": "/static/media/lucky_charms.b952273f.jpg",
+    "static/media/raisin_bran.jpg": "/static/media/raisin_bran.19d43de8.jpg",
+    "static/media/rice_chex.jpg": "/static/media/rice_chex.3df09381.jpg",
+    "static/media/rice_krispies.jpg": "/static/media/rice_krispies.635ec427.jpg",
+    "static/media/the_cereal_aisle_logo-01.svg": "/static/media/the_cereal_aisle_logo-01.0c4f99ee.svg",
+    "static/media/the_cereal_aisle_logo-01.png": "/static/media/the_cereal_aisle_logo-01.b6167a6b.png",
+    "static/media/vector_bowl-02.svg": "/static/media/vector_bowl-02.27fa21de.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.be91e4c2.js",
+    "static/js/2.8feb6356.chunk.js",
+    "static/css/main.d3a37a7c.chunk.css",
+    "static/js/main.00a25168.chunk.js"
+  ]
+}
