@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './style.css'
 import ReactDOM from 'react-dom';
 import TokenUtilities from './API/token';
+import API from './API/api';
 import {
 	BrowserRouter as Router,
 	Route,
@@ -16,18 +17,34 @@ import {
   Cart,
   Register
 } from './components';
+import Admin from './components/Admin';
 
 const App = () => {
 
 const [token, setToken] = useState(TokenUtilities.getToken());
 const [isLoggedIn, setIsLoggedIn] = useState(!!token);
 const [total, setTotal] = useState(0);
+const [isAdmin, setAdmin] = useState(false);
 
 useEffect(function() {
 	setIsLoggedIn(!!token);
 }, [token]);
 
+useEffect( async function() {
+	try {
+		const username = localStorage.getItem('username');
+		const userData = await API.makeRequest(`/users/${username}`, 'GET');
+		console.log("USERDATA",userData)
+		setAdmin(userData.admin)
+		
 
+		
+		
+	} catch (error) {
+		throw error;
+	} 
+}, []);
+console.log("isAdmin",isAdmin)
   return (
     <>
 		{/* {isLoggedIn ?
@@ -37,7 +54,7 @@ useEffect(function() {
 				: */}
 			<div className="app">
 				<Header
-					isLoggedIn = {isLoggedIn} setToken={setToken}
+					isLoggedIn = {isLoggedIn} setToken={setToken} isAdmin= {isAdmin}
 				/>
 				<Switch>
 					<Route exact path="/">
@@ -71,6 +88,10 @@ useEffect(function() {
 
 					<Route path="/profile">
 						<Profile total={total}/>
+					</Route>
+
+					<Route path="/admin">
+						<Admin />
 					</Route>
 
 					

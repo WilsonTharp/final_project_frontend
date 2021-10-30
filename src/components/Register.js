@@ -61,8 +61,9 @@ function handleInput(event) {
 }
 
 return (
-    <div className='pageContainer'>
-       <h2>Register here</h2>
+    <>
+    <div className='pageContainerLogin'>
+       
         <form className='form'onSubmit={handleSubmit}>
         
             <input type="text" 
@@ -100,9 +101,11 @@ return (
                    value={registerUser.location}
                    onChange={handleInput}
                    placeholder="location"></input>
-            <button>Register</button>
+            <button className="logInButton">Sign Up</button>
         </form>
     </div>
+    <img className="homepageImage2" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
+    </>
 )
 }
 

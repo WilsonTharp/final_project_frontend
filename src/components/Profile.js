@@ -45,7 +45,7 @@ const Profile = ({total}) => {
 
     return (
         <>
-		<div className="pageContainer">
+		<div className="pageContainerLogin">
 		<div>
 			<h3>My Profile</h3>
 			<div>First name:{myProfile.firstName}</div>
