@@ -89,7 +89,8 @@ console.log('userId is', userId)
     <div>
       <div className="pageContainerLogin2">
       <img className="itemImg" src={require(`../images/vector_bowl-02.svg`).default}></img>
-        <div>
+      <div className="individualItem">
+      
           {items.map((item) => {
             console.log(item);
             return (

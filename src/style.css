@@ -217,6 +217,7 @@ body{
 }
 
 .signUpSection button:hover{
+    cursor: pointer;
     background-color: white;
     color: #d72045;
     
@@ -234,78 +235,98 @@ body{
     text-decoration: none;
 }
 
-@media (min-width:60em){
-    .header li{
-        float: left;
-    }
-    .header li .navItem{
-        position: 20px 30px;
-    }
-    .header .menu{
-        clear: none;
-        float: right;
-        max-height: none;
-    }
+.featuredItems{
+    display:inline-block;
+    /* background-color: white; */
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 20px;
+    height: 400px;
+    width: 100%;
+}
 
-    .header .menu-icon{
-        display: none;
-    }
+.featuredItems h3{
+    color: #d72045;
+    font-family: Bungee;
+    font-size: 40px;
+}
 
+.featuredItems2{
+    display:inline-block;
+    /* background-color: white; */
+    margin-top: 40px;
+    height: auto;
+    width: 100%;
+    text-align: center;
+} 
+
+.featuredItems2 h3{
+    width: 100%;
+    color: #d72045;
+    font-family: Bungee;
+    font-size: 40px;
+    margin-top: -50px;
+    margin-left: 0px;
+    
     
 }
 
-@media (max-width:60em){
 
-    .pageContainer h1{
-        display: flex;
-        align-items: center;
-        
-        
-        /* margin-top: 0px; */
-    }
-
-
-    
-
-    
-
-    
-    .homepageImage{
-        position: relative;
-        display: block;
-        float: right;
-        width: 500px;
-        height: auto;
-        margin-top: 225px;
-        z-index: -1;
-       
-    }
-    .homepageImage2{
-        position: relative;
-        display: block;
-        float: right;
-        width: 500px;
-        height: auto;
-        margin-top: 320px;
-        z-index: 0;
-       
-    }
-
-    .homepageImage3{
-        position: relative;
-        display: block;
-        float: right;
-        width: 500px;
-        height: auto;
-        margin-top: 270px;
-        z-index: 0;
-       
-    }
+.featuredItemsImages{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+    background-color: white;
+    height: 400px;
+    margin-top: 10px;
+    align-content: center;
+    vertical-align: middle;
+    z-index: 5;   
 }
+
+.featuredItemsImages img{
+    width: 300px;
+    height: auto;
+    margin-top: 0px;
+    transition: transform .2s;
+    
+}
+
+.featuredItemsImages img:hover {
+    transform: scale(1.12);
+}
+
+.shopNowButton {
+    background-color: #d72045;
+    
+    width: 150px;
+    height: 50px;
+    font-family: Bungee;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: -10px;
+}
+
+.shopNowLink{
+    text-decoration: none;
+    color: white;
+}
+
+.shopNowButton:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #d72045;
+}
+
+.shopNowLink:hover{
+    color: #d72045;
+}
+
+
 
     .pageContainerLogin{
         position: relative;
-      
         margin-top: 0px;
 
        
@@ -315,19 +336,43 @@ body{
         position:relative;
         margin-top: 0px;
         text-align: center;
+        background-color: white;
     
+    }
+
+    .individualItem{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-between;
+        
     }
 
     .itemImg{
        height: 100px; 
        margin-top: 120px;
        margin-bottom: 20px;
-      
+    
     }
+    
+    
+
+    .individualItem img{
+        z-index: 0;
+        transition: transform .2s;
+    }
+
+    .individualItem img:hover {
+        transform: scale(1.12);
+        cursor: pointer;
+    }
+
+  
+      
 
     .singleItem {
         width: 500px;
-        height: auto;
+        height: 290px;
         margin-left: auto;
         margin-right: auto;
         background-color: white;
@@ -335,6 +380,7 @@ body{
         display: flex;
         text-align: left;
         padding: 20px;
+        border-bottom: 2px solid #fbbd1c;
     }
 
     .singleItem h2{
@@ -353,6 +399,8 @@ body{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
         color: gray;
+        margin-right: 10px;
+        z-index: 5;
     }
 
     .singleItem img{
@@ -407,5 +455,142 @@ body{
     }
 
 
-
+.profileInfo{
+        position:relative;
+        margin-top: 0px;
+        text-align: left;
+        color: #d72045;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        
     
+    }
+
+    .profileInfo h3{
+        color: white;
+        font-family: Bungee;
+        font-size: 30px;
+    }
+
+
+
+
+
+
+
+    @media (min-width:60em){
+        .header li{
+            float: left;
+        }
+        .header li .navItem{
+            position: 20px 30px;
+        }
+        .header .menu{
+            clear: none;
+            float: right;
+            max-height: none;
+        }
+    
+        .header .menu-icon{
+            display: none;
+        }
+    
+        
+    }
+    
+    @media (max-width:60em){
+    
+        .pageContainerLogin{
+           text-align: center;
+            margin-top: 0px;
+            margin-left: auto;
+            margin-right: auto;
+    
+           
+        }
+        
+        .pageContainer h1{
+            display: flex;
+            align-items: center;
+            
+            
+            /* margin-top: 0px; */
+        }
+    
+    
+        
+    
+        
+    
+        
+        .homepageImage{
+            position: relative;
+            display: block;
+            float: right;
+            width: 500px;
+            height: auto;
+            margin-top: 225px;
+            z-index: -1;
+           
+        }
+        .homepageImage2{
+            position: relative;
+            display: block;
+            float: right;
+            width: 500px;
+            height: auto;
+            margin-top: 320px;
+            z-index: 0;
+           
+        }
+    
+        .homepageImage3{
+            position: relative;
+            display: block;
+            float: right;
+            width: 500px;
+            height: auto;
+            margin-top: 270px;
+            z-index: 0;  
+        }
+
+        .featuredItems {
+            
+            height: auto;
+            z-index: -10;
+            
+            
+        }
+        
+
+        .featuredItemsImages{
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-between;
+            height: 0px;
+            width: 100%;
+            margin-top: 750px;
+            align-content: center;
+            vertical-align: middle;
+            z-index: 5;   
+        }
+
+        .featuredItemsImages img{
+            background-color: white;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .shopNowButton {
+            background-color: #d72045;
+            
+            width: 150px;
+            height: 50px;
+            font-family: Bungee;
+            font-size: 20px;
+            text-decoration: none;
+            margin-top: 700px;
+        }
+    }
