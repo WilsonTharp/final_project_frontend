@@ -9,7 +9,7 @@ const Home = ({isLoggedIn, setToken}) => {
     
     async function storeToken() {
         try {
-           
+		
             const data = await API.makeRequest('/users/login', 'POST', user);
             if(data.token){
             TokenUtilities.setToken(data.token);
@@ -17,7 +17,7 @@ const Home = ({isLoggedIn, setToken}) => {
             setToken(data.token);
             history.push('/');
             }else{
-                alert(data.error);
+                alert("No account with this Username. Please Resgister.");
             }
         } catch (error) {
             alert(error);

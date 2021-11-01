@@ -85,7 +85,7 @@ const Cart = ({total, setTotal}) => {
     const [myCart, setMyCart] = useState([]);
 	const [Id, setId] = useState("");
 	const [render, setRender]= useState("")
-
+    const [a, setA]=useState("")
     useEffect( async function() {
         try {
             const username = localStorage.getItem('username');
@@ -106,7 +106,7 @@ const Cart = ({total, setTotal}) => {
         } catch (error) {
             throw error;
         } 
-    }, []);
+    }, [a]);
 	
 
 	
@@ -128,7 +128,7 @@ const Cart = ({total, setTotal}) => {
 	console.log(myCart)
 	const cartElements= myCart.map((item, i)=>
        { return(<div  key= {`cart-item-id-${i}`}>
-             <CartIndividualItem item={item} quantity={item.quantity} price={item.price} setRender={setRender} Id={Id} />
+             <CartIndividualItem item={item} quantity={item.quantity} price={item.price} render={render}setRender={setRender} Id={Id} setA={setA}/>
 			
         </div>)});
 

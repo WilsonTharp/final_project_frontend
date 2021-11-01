@@ -30,6 +30,8 @@ const Total = ({total, setTotal, render}) => {
 		const totalPrice = itemsPrice + taxPrice + shippingPrice;
 		setTotal(totalPrice)
 
+        
+
     return (
         <>
 		<div className="pageContainer">

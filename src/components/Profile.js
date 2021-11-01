@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../API/api';
 
 
-const Profile = ({total}) => {
+const Profile = () => {
 
     const [myProfile, setMyProfile] = useState([]);
 	const [processedItems, setProcessedItems] = useState([]);
@@ -27,13 +27,13 @@ const Profile = ({total}) => {
 
 
 	const processedItemsMap= processedItems.map((item, i)=>
-       { return(<div>
+       { return(<div key= {`processedItem-item-id-${i}`}>
             { item.processed ?
 			<div key= {`processedItem-item-id-${i}`}>
 			 <h2>{item.name}</h2>
-        	<h3>${item.price}</h3>
+        	<h3>Price:${item.price}</h3>
         	<p>{item.description}</p>
-			<p>{item.quantity}</p>
+			<p>Quantity:{item.quantity}</p>
         	<img src={require(`../images/${item.picture}`).default}></img>
 			</div> 
 			:
@@ -46,7 +46,7 @@ const Profile = ({total}) => {
     return (
         <>
 		<div className="pageContainerLogin">
-		<div>
+		<div key= {`profile-id-${myProfile.id}`}>
 			<h3>My Profile</h3>
 			<div>First name:{myProfile.firstName}</div>
 			<div>Last name:{myProfile.lastName}</div>
@@ -54,6 +54,7 @@ const Profile = ({total}) => {
 			<div> Password:{myProfile.password}</div>
 			<div> Location:{myProfile.location}</div>
 			<div> {processedItemsMap}</div>
+			
 		</div>
 		</div>
 		</>

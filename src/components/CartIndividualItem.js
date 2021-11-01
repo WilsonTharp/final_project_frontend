@@ -2,7 +2,7 @@ import React, { useState, useEffect, createElement } from 'react';
 
 import API from '../API/api';
 
-const CartIndividualItem = ({ item , quantity, price, setRender, Id}) => {
+const CartIndividualItem = ({ item , quantity, price, setRender, Id, setA, render}) => {
 		
 	const [count, setCount] = useState(quantity);
 	
@@ -22,7 +22,7 @@ const CartIndividualItem = ({ item , quantity, price, setRender, Id}) => {
 		try {
 			const username = localStorage.getItem('username');	
 		console.log(count)
-			const data=await API.makeRequest(`/cart/editCart/${username}`, 'PATCH', {itemsId:item.id ,quantity:count});
+			const data=await API.makeRequest(`/cart/editCart/${username}`, 'PATCH', {itemsId:item.itemsId ,quantity:count});
 			setRender(data.quantity)
 		} catch (error) {
 			throw error;
@@ -33,13 +33,19 @@ const CartIndividualItem = ({ item , quantity, price, setRender, Id}) => {
 		await addCount();
 	
 	}
+    
 
 	async function removeItem(e, id){
 		try {
 		
 			console.log("cartId", id)
-			const data = await API.makeRequest(`/cart/inProcess/${Id}`, 'GET');
+			//const data = await API.makeRequest(`/cart/inProcess/${Id}`, 'GET');
 			await API.makeRequest(`/cart/${id}`, 'DELETE' );
+
+            console.log(id)
+            setRender(id);
+            setA(id);
+            
 		} catch (error) {
 			throw error;
 		}

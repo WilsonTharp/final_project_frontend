@@ -1,6 +1,5 @@
 const BASE_URL = 'https://stormy-cliffs-19434.herokuapp.com/api';
 
-
 const handleItems = async () => {
 	try {
 		const response = await fetch(BASE_URL + "/items", {
@@ -14,8 +13,6 @@ const handleItems = async () => {
 		throw error;
 	}
 };
-
-
 
 
 

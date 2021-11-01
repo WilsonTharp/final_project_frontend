@@ -15,41 +15,41 @@ const Register = (isLoggedIn, setToken) => {
 
             const data = await API.makeRequest('/users/register', 'POST', registerUser);
             console.log('THIS IS DATA', data);
-            if(isLoggedIn){
-            //     alert(data.message);
-                history.push('/');
-            }else{
-                // alert(data.error);
-            }
+            if(data.user.length == 0){
+                alert("username already exist");
+			}else{
+			alert("Successfully Registered");
+			history.push('/');
+			}
         } catch (error) {
             alert(error);
         } 
         
     }
 
-    async function storeToken() {
-        try {
+    // async function storeToken() {
+    //     try {
            
-            const data = await API.makeRequest('/users/login', 'POST', user);
-            if(data.token){
-            TokenUtilities.setToken(data.token);
-            console.log(data);
-            setToken(data.token);
-            history.push('/');
-            }else{
-                alert(data.error);
-            }
-        } catch (error) {
-            alert(error);
-        } 
-    }
+    //         const data = await API.makeRequest('/users/login', 'POST', user);
+    //         if(data.token){
+    //         TokenUtilities.setToken(data.token);
+    //         console.log(data);
+    //         setToken(data.token);
+    //         history.push('/');
+    //         }else{
+    //             alert(data.error);
+    //         }
+    //     } catch (error) {
+    //         alert(error);
+    //     } 
+    // }
 
 
 
 function handleSubmit(event) {
     event.preventDefault();
     registerGetToken();
-    storeToken();
+    //storeToken();
     
 }
 
