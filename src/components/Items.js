@@ -28,15 +28,15 @@ const IndividualItem = ({ item, userId }) => {
         <h3>${item.price}</h3>
         <p>{item.description}</p>
         <div className="quantitySelector">
-          <button id={item.id} onClick={subtractCount}>
+          <button id={item.id} onClick={subtractCount} className="quantityButton">
             -
           </button>
-          <p>Quantity {count}</p>
-          <button id={item.id} onClick={addCount}>
+          <h3>{count}</h3>
+          <button id={item.id} onClick={addCount} className="quantityButton">
             +
           </button>
           </div>
-          <button
+          <button className="addToCartButton"
 	
   onClick={() => {
 // setItemId(item.id);
@@ -87,9 +87,10 @@ console.log('userId is', userId)
   }, []);
   return (
     <div>
-      <div className="pageContainerLogin">
-        <h1 className="pageTitle">Items:</h1>
-        <div>
+      <div className="pageContainerLogin2">
+      <img className="itemImg" src={require(`../images/vector_bowl-02.svg`).default}></img>
+      <div className="individualItem">
+      
           {items.map((item) => {
             console.log(item);
             return (

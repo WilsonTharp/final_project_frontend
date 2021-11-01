@@ -27,7 +27,7 @@ const Profile = () => {
     return (
         <>
 		<div className="pageContainerLogin">
-		<div>
+		<div className="profileInfo">
 			<h3>My Profile</h3>
 			<div>First name:{myProfile.firstName}</div>
 			<div>Last name:{myProfile.lastName}</div>
