@@ -161,7 +161,7 @@ body{
     float:right;
     height: 600px;
     width: auto;
-    margin-top: 150px;
+    margin-top: -200px;
     
 }
 
@@ -169,7 +169,7 @@ body{
     float:right;
     height: 600px;
     width: auto;
-    margin-top: 150px;
+    margin-top: -200px;
     
 }
 
@@ -218,7 +218,7 @@ body{
 
 .signUpSection button:hover{
     background-color: white;
-    color: #d72045;;
+    color: #d72045;
     
 }
 
@@ -263,7 +263,7 @@ body{
         
         /* margin-top: 0px; */
     }
-}
+
 
     
 
@@ -301,29 +301,111 @@ body{
         z-index: 0;
        
     }
+}
 
     .pageContainerLogin{
         position: relative;
-        margin-left: auto;
-        margin-right: auto;
+      
         margin-top: 0px;
 
        
     }
 
+    .pageContainerLogin2{
+        position:relative;
+        margin-top: 0px;
+        text-align: center;
+    
+    }
+
+    .itemImg{
+       height: 100px; 
+       margin-top: 120px;
+       margin-bottom: 20px;
+      
+    }
+
     .singleItem {
-        width: 400px;
-        height: 400px;
-        margin-left: none;
+        width: 500px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
         background-color: white;
+        flex-direction: row;
         display: flex;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .singleItem h2{
+        font-family: Bungee;
+        font-size: 20px;
+        color: #d72045;
+    }
+
+    .singleItem h3{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        color: black;
+    }
+
+    .singleItem p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: gray;
     }
 
     .singleItem img{
-        height: 250px;
+        height: 200px;
         width: auto;
-        float: right;
+        
     }
+
+    .quantitySelector{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .quantitySelector h3{
+        
+        margin-right: 10px;
+        margin-left: 10px;
+        line-height: 20px;
+    }
+
+    .quantityButton{
+        background-color: #d72045;
+        color: white;
+        font-family: Bungee;
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        justify-content: center;
+        line-height: 20px;
+    }
+
+    .quantityButton:hover{
+        cursor: pointer;
+        background-color: #fbbd1c;;
+    }
+
+    .addToCartButton{
+        background-color: #d72045;
+        color: white;
+        font-family: Bungee;
+        font-size: 15px;
+        height: 30px;
+        width: 130px;
+        line-height: 15px;
+    }
+
+    .addToCartButton:hover{
+        cursor: pointer;
+        background-color: #fbbd1c;;
+    }
+
 
 
     
