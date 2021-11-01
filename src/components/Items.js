@@ -4,7 +4,7 @@ import { handleItems, handleCreateCart } from "../API/index";
 import { useHistory, Link } from "react-router-dom";
 import API from '../API/api';
 
-const IndividualItem = ({ item, userId }) => {
+const IndividualItem = ({ item, userId, isLoggedIn }) => {
   //moved the count state item into the Clicker since we dont need to access it anywhere inside Items -> only relevant to the clicker
   const [count, setCount] = useState(0);
   const [itemId, setItemId] = useState(0);
@@ -17,9 +17,8 @@ const IndividualItem = ({ item, userId }) => {
     {
       count === 0 ? setCount(0) : setCount(count - 1);
     }
-	
-	
   };
+  
   return (
     <>
       <div className="singleItem">

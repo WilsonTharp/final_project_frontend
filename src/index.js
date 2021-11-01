@@ -78,7 +78,7 @@ console.log("isAdmin",isAdmin)
 					</Route>
 				
 					<Route path="/items">
-						<Items />
+						<Items isLoggedIn = {isLoggedIn}/>
 					</Route>
 
 					<Route path="/cart">
@@ -87,7 +87,7 @@ console.log("isAdmin",isAdmin)
 					</Route>
 
 					<Route path="/profile">
-						<Profile />
+						<Profile total={total}/>
 					</Route>
 
 					<Route path="/admin">
