@@ -46,7 +46,9 @@ const Profile = () => {
     return (
         <>
 		<div className="pageContainerLogin">
+
 		<div key= {`profile-id-${myProfile.id}`}>
+
 			<h3>My Profile</h3>
 			<div>First name:{myProfile.firstName}</div>
 			<div>Last name:{myProfile.lastName}</div>

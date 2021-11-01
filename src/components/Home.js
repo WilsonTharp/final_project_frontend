@@ -45,6 +45,15 @@ return (
            
             <h3>Welcome back <h1>{localStorage.getItem(`username`)}</h1></h3>
             <img className="homepageImage3" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
+            <div className="featuredItems2">
+        <h3>Featured Items</h3>
+    <div className="featuredItemsImages">
+    <img className="homepageImage" src={require(`../images/cheerios.jpg`).default} ></img>
+    <img className="homepageImage" src={require(`../images/captian_crunch.jpg`).default} ></img>
+    <img className="homepageImage" src={require(`../images/kix.jpg`).default} ></img>
+    </div>
+    <button className="shopNowButton"><Link to="/items" className="shopNowLink">Shop Now!</Link></button>
+    </div>
         </div>
         :
         <>
@@ -73,6 +82,15 @@ return (
       
     </div>
     <img className="homepageImage" src={require(`../images/cereal_hand_transparent.png`).default} ></img>
+    <div className="featuredItems">
+        <h3>Featured Items</h3>
+    <div className="featuredItemsImages">
+    <img className="homepageImage" src={require(`../images/cheerios.jpg`).default} ></img>
+    <img className="homepageImage" src={require(`../images/captian_crunch.jpg`).default} ></img>
+    <img className="homepageImage" src={require(`../images/kix.jpg`).default} ></img>
+    </div>
+    <button className="shopNowButton"><Link to="/items" className="shopNowLink">Shop Now!</Link></button>
+    </div>
     </>
 }
     </>
