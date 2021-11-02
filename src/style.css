@@ -521,6 +521,39 @@ body{
     }
 
 
+    .quantityButton2{
+        background-color: #d72045;
+        color: white;
+        font-family: Bungee;
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+        text-align: center;
+        justify-content: center;
+        line-height: 20px;
+        margin-left: 255px;
+    }
+
+    .quantityButton2:hover{
+        cursor: pointer;
+        background-color: #fbbd1c;;
+    }
+
+    .currentUsersTitle{
+        color: white;
+        font-family: Bungee;
+        text-align: left;
+    }
+
+    .currentUsers{
+        color: #d72045;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        text-align: left;
+        border-bottom: 2px solid #d72045;
+        margin-bottom: 10px;
+    }
+
 
     @media (min-width:60em){
         .header li{

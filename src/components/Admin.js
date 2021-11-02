@@ -18,7 +18,7 @@ const CreateItem = ({setCreateItem}) => {
   return (
     <div className="createItem">
         <form>
-            <button className="closeMenu" onClick={() => setCreateItem(false)}>x</button>
+            <button className="closeMenu" onClick={() => setCreateItem(false)} className="quantityButton2">x</button>
             <div>
             <div className="createInputs">
             <input value={name} onChange= {(e) => setName(e.target.value)}  placeholder="name"></input>
@@ -33,7 +33,7 @@ const CreateItem = ({setCreateItem}) => {
             <input  value={picture} onChange= {(e) => setPicture(e.target.value)} placeholder="picture"></input>
             </div>
             
-            <button className="createItemPublishButton" onClick={handleSubmit}>Publish</button>
+            <button className="checkoutButton" onClick={handleSubmit}>Publish</button>
             </div>
         </form>
     </div>
@@ -65,7 +65,7 @@ const Admin = () => {
           <div className="pageContainerLogin">
             
             <div>
-            <button className= "createButton"
+            <button className= "checkoutButton"
 			onClick={(event) => {
 				event.preventDefault();
 				setCreateItem(true);
@@ -75,11 +75,13 @@ const Admin = () => {
                 createItem &&
                 <CreateItem setCreateItem={setCreateItem}/>
             }
-		<h1 className="pageTitle">Current Users:</h1>
+            </div>
+            <div >
+		<h1 className="currentUsersTitle">Current Users:</h1>
               {ourUsers.map((users) => {
                 console.log(users);
                 return (
-                  <div key={users.id}>
+                  <div key={users.id} className="currentUsers">
                        <h2>{users.username}</h2>
                         <h3>${users.password}</h3>
                         <p>{users.firstName}</p>

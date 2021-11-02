@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.d3a37a7c.chunk.css",
-    "main.js": "/static/js/main.00a25168.chunk.js",
-    "main.js.map": "/static/js/main.00a25168.chunk.js.map",
+    "main.css": "/static/css/main.643ef205.chunk.css",
+    "main.js": "/static/js/main.c7f4d99c.chunk.js",
+    "main.js.map": "/static/js/main.c7f4d99c.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.be91e4c2.js",
     "runtime-main.js.map": "/static/js/runtime-main.be91e4c2.js.map",
-    "static/js/2.8feb6356.chunk.js": "/static/js/2.8feb6356.chunk.js",
-    "static/js/2.8feb6356.chunk.js.map": "/static/js/2.8feb6356.chunk.js.map",
+    "static/js/2.e9733074.chunk.js": "/static/js/2.e9733074.chunk.js",
+    "static/js/2.e9733074.chunk.js.map": "/static/js/2.e9733074.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.d3a37a7c.chunk.css.map": "/static/css/main.d3a37a7c.chunk.css.map",
-    "static/js/2.8feb6356.chunk.js.LICENSE.txt": "/static/js/2.8feb6356.chunk.js.LICENSE.txt",
+    "static/css/main.643ef205.chunk.css.map": "/static/css/main.643ef205.chunk.css.map",
+    "static/js/2.e9733074.chunk.js.LICENSE.txt": "/static/js/2.e9733074.chunk.js.LICENSE.txt",
     "static/media/apple_jacks.jpg": "/static/media/apple_jacks.99bc78b6.jpg",
     "static/media/boo_berry.jpg": "/static/media/boo_berry.e498fe34.jpg",
     "static/media/captian_crunch.jpg": "/static/media/captian_crunch.91d9860a.jpg",
     "static/media/cereal_hand_transparent.png": "/static/media/cereal_hand_transparent.95dd21d7.png",
-    "static/media/cereal_images.psd": "/static/media/cereal_images.bb2c2e29.psd",
+    "static/media/cereal_images.psd": "/static/media/cereal_images.bf358704.psd",
     "static/media/cheerios.jpg": "/static/media/cheerios.7f1c08ef.jpg",
+    "static/media/cookie_crisp.jpg": "/static/media/cookie_crisp.a90a2f5e.jpg",
     "static/media/froot_loops.jpg": "/static/media/froot_loops.26f86979.jpg",
     "static/media/frosted_flakes.jpg": "/static/media/frosted_flakes.4e4b822d.jpg",
     "static/media/fruity_pebbles.jpg": "/static/media/fruity_pebbles.75857472.jpg",
@@ -33,8 +34,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.be91e4c2.js",
-    "static/js/2.8feb6356.chunk.js",
-    "static/css/main.d3a37a7c.chunk.css",
-    "static/js/main.00a25168.chunk.js"
+    "static/js/2.e9733074.chunk.js",
+    "static/css/main.643ef205.chunk.css",
+    "static/js/main.c7f4d99c.chunk.js"
   ]
 }
