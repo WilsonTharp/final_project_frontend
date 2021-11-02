@@ -340,6 +340,8 @@ body{
     
     }
 
+   
+
     .individualItem{
         display: flex;
         flex-wrap: wrap;
@@ -472,9 +474,51 @@ body{
         font-size: 30px;
     }
 
+    .pageContainerLogin3{
+        position: relative;
+        margin-top: 0px;
+        text-align: center;
 
+       
+    }
 
+    .pageContainerLogin3 .itemImg{
+        margin-top: 100px;
+        text-align: center;
+    }
 
+    .itemsTotal{
+        margin-bottom: 5px;
+    }
+
+    .checkoutSection{
+        
+        color: #d72045;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+
+    
+    
+    .checkoutButton {
+        background-color: #d72045;
+        color: white;
+        width: 150px;
+        height: 50px;
+        font-family: Bungee;
+        font-size: 20px;
+        text-decoration: none;
+        margin-top: 0px;
+    }
+    
+
+    
+    .checkoutButton:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #d72045;
+    }
 
 
 
@@ -592,5 +636,10 @@ body{
             font-size: 20px;
             text-decoration: none;
             margin-top: 700px;
+        }
+
+        .pageContainerLogin3 .itemImg{
+            margin-top: 100px;
+            text-align: center;
         }
     }

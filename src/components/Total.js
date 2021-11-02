@@ -36,7 +36,7 @@ const Total = ({total, setTotal, render}) => {
         <>
 		<div className="pageContainer">
 		<div>
-			<h3>Cart total</h3>
+			
             <div>Subtotal:{itemsPrice} </div>
             <div>Tax:{taxPrice} </div>
             <div>Shipping:{shippingPrice} </div>
