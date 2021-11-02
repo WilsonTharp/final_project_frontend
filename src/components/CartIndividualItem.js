@@ -55,26 +55,33 @@ const CartIndividualItem = ({ item , quantity, price, setRender, Id, setA, rende
 	  <>
 	  
 
-		<div className={"singleItem" + item.id}>
+		<div className="singleItem">
+			<div className="itemText">
 		  <h2>{item.name}</h2>
 		  <h3>${item.price}</h3>
 		  <p>{item.description}</p>
 		  <div className="quantitySelector">
-			<button id={item.id} onClick={subtractCount}>
+			<button id={item.id} onClick={subtractCount} className="quantityButton">
 			  -
 			</button>
-			<p>Quantity { count}</p>
+			<h3>{ count}</h3>
 			
-			<button id={item.id} onClick={updateCart}>
+			<button id={item.id} onClick={updateCart} className="quantityButton">
 			  +
 			</button>
-			<div>
-			<button id={item.id} onClick={(e) => removeItem(e, item.id)}>
-			  Remove Item
-			</button>	
 			</div>
-		  </div>
+				
+			
+		  
+		  
+		  <div className="itemsTotal">
 		  <p>Items total: {`${ count} X ${item.price}= ${ parseInt( count *item.price)}`}</p>
+		  </div>
+		  <button id={item.id} onClick={(e) => removeItem(e, item.id)} className="addToCartButton">
+			  Remove Item
+			</button>
+			
+			</div>
 		  <img src={require(`../images/${item.picture}`).default}></img>
 		  
 		  

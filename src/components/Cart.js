@@ -134,13 +134,13 @@ const Cart = ({total, setTotal}) => {
 
     return (
         <>
-		<div className="pageContainerLogin">
-		<div>
-			<h3>My cart</h3>
-			<div>{cartElements}</div>
+		<div className="pageContainerLogin3">
+		<img className="itemImg" src={require(`../images/cart_icon_empty-01.png`).default}></img>
+			<div className="individualItem">{cartElements}</div>
+			<div className="checkoutSection">
 			<Total total={total} setTotal={setTotal} render={render}/>
-			<button onClick={(e) => onCheckout(e)}>Checkout</button>
-		</div>
+			<button onClick={(e) => onCheckout(e)} className="checkoutButton">Checkout</button>
+			</div>
 		</div>
 		</>
     )
