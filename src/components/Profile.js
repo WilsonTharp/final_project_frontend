@@ -29,11 +29,13 @@ const Profile = () => {
 	const processedItemsMap= processedItems.map((item, i)=>
        { return(<div key= {`processedItem-item-id-${i}`}>
             { item.processed ?
-			<div key= {`processedItem-item-id-${i}`}>
+			<div className="singleItem" key= {`processedItem-item-id-${i}`}>
+			<div className="itemText">
 			 <h2>{item.name}</h2>
         	<h3>Price:${item.price}</h3>
         	<p>{item.description}</p>
 			<p>Quantity:{item.quantity}</p>
+			</div>
         	<img src={require(`../images/${item.picture}`).default}></img>
 			</div> 
 			:
@@ -45,9 +47,9 @@ const Profile = () => {
 
     return (
         <>
-		<div className="pageContainerLogin">
+		<div className="pageContainerLogin4">
 
-		<div key= {`profile-id-${myProfile.id}`}>
+		<div className="profileText" key= {`profile-id-${myProfile.id}`}>
 
 			<h3>My Profile</h3>
 			<div>First name:{myProfile.firstName}</div>
@@ -55,10 +57,15 @@ const Profile = () => {
 			<div> Username:{myProfile.username}</div>
 			<div> Password:{myProfile.password}</div>
 			<div> Location:{myProfile.location}</div>
-			<div> {processedItemsMap}</div>
+			</div>
+			<div className="pageBreak"></div>
+			<div className="pastOrdersTitle">
+			<h3>Past Orders</h3>
+			</div>
+			<div className="individualItem"> {processedItemsMap}</div>
 			
 		</div>
-		</div>
+		
 		</>
     )
 }
